@@ -21,6 +21,16 @@
   <p>6 products</p>
   </div>
   </div>
+  <div class="cards">
+  <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="item title" price="1000.00" discount="800.00" > </x-item-card> 
+  <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="item title" price="1000.00" discount="800.00" > </x-item-card> 
+  <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="item title" price="1000.00" discount="800.00" > </x-item-card> 
+  <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="item title" price="1000.00" discount="800.00" > </x-item-card> 
+  <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="item title" price="1000.00" discount="800.00" > </x-item-card> 
+  <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="item title" price="1000.00" discount="800.00" > </x-item-card> 
+  <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="item title" price="1000.00" discount="800.00" > </x-item-card> 
+  <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="item title" price="1000.00" discount="800.00" > </x-item-card> 
+  </div>
   <div class="line one"></div>
   <div class="links">
    
@@ -63,21 +73,24 @@
   </div>
   <div class="line two"></div>
 <footer>
-  <div>
-    <div>
+  <div class="footer-wrap">
+    <div class="payment">
       <p>Country/region</p>
       <select name="currency" id="">
       <option>Canada (CAD $)</option>
       <option>Euro (EUR) </option>
       </select>
     </div>
-    <div>
+    <div class="payment">
       <p>Language</p>
       <select name="language" id="">
-      <option></option>
+      <option>English</option>
+      <option>Spain</option>
       </select>
     </div>
   </div>
+  <img class="payment" src="{{asset('icons/pay.svg')}}" alt="">
+  <p class="below">© 2021, dawn-theme-default Powered by Shopify</p>
 </footer>
 
 </body>

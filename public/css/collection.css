@@ -1,6 +1,5 @@
 body {
   max-width: 375px;
-  margin-left: 12.5px;
 }
 body h1 {
   font-style: normal;
@@ -13,12 +12,11 @@ body .filter-wrapper {
   display: flex;
   gap: 172px;
   margin-top: 19px;
+  margin-bottom: 46px;
 }
 body .filter-wrapper .top-filter {
   display: flex;
   gap: 11px;
-  width: 20px;
-  height: 20px;
 }
 body .filter-wrapper .top-filter img {
   width: 14px;
@@ -33,11 +31,16 @@ body .filter-wrapper p {
   letter-spacing: 0.02em;
   white-space: nowrap;
 }
+body .cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 40px;
+}
 body .links {
   display: flex;
   flex-direction: column;
   gap: 41px;
-  margin-top: 41px;
+  margin-top: 82px;
 }
 body .links h1 {
   margin-bottom: 30px;
@@ -50,7 +53,7 @@ body .links h1 {
 body .links .wrap {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 5px;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -99,20 +102,55 @@ body .links .sub-wrap input[type=text] {
 body .links .icon-wrap {
   display: flex;
   gap: 26px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 body .links .icon-wrap img {
   fill: #121212;
+  cursor: pointer;
+}
+body .footer-wrap {
+  display: flex;
+  gap: 7px;
+  margin-top: 41px;
+  padding-top: 41px;
+  margin-left: 63.5px;
+}
+body .footer-wrap .payment {
+  display: flex;
+  flex-direction: column;
+}
+body .footer-wrap .payment p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 17px;
+  letter-spacing: 0.03em;
+  color: rgba(18, 18, 18, 0.75);
+}
+body .footer-wrap .payment select {
+  padding: 11px;
+  border: 1px solid #7d7d7d;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem center;
+  background-size: 1em;
+  padding-right: 35px;
+}
+body .payment {
+  margin-top: 20px;
+}
+body .below {
+  margin-top: 16px;
+  text-align: center;
 }
 
 .line {
   width: 375px;
   border-top: 1px solid #d0d0d0;
   position: absolute;
-}
-
-.one {
-  margin-bottom: 40px;
 }
 
 .two {

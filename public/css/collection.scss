@@ -1,8 +1,6 @@
 body {
   max-width: 375px;
 
-  margin-left: 12.5px;
-
   h1 {
     font-style: normal;
     font-weight: 400;
@@ -14,11 +12,10 @@ body {
     display: flex;
     gap: 172px;
     margin-top: 19px;
+    margin-bottom: 46px;
     .top-filter {
       display: flex;
       gap: 11px;
-      width: 20px;
-      height: 20px;
 
       img {
         width: 14px;
@@ -35,12 +32,16 @@ body {
       white-space: nowrap;
     }
   }
-
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 40px;
+  }
   .links {
     display: flex;
     flex-direction: column;
     gap: 41px;
-    margin-top: 41px;
+    margin-top: 82px;
     h1 {
       margin-bottom: 30px;
       font-style: normal;
@@ -52,7 +53,7 @@ body {
     .wrap {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 5px;
       font-style: normal;
       font-weight: 400;
       font-size: 14px;
@@ -83,11 +84,49 @@ body {
     .icon-wrap {
       display: flex;
       gap: 26px;
-      margin-top: 10px;
+      margin-top: 20px;
       img {
         fill: #121212;
+        cursor: pointer;
       }
     }
+  }
+  .footer-wrap {
+    display: flex;
+    gap: 7px;
+    margin-top: 41px;
+    padding-top: 41px;
+    margin-left: 63.5px;
+    .payment {
+      display: flex;
+      flex-direction: column;
+
+      p {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 17px;
+        letter-spacing: 0.03em;
+        color: rgba(18, 18, 18, 0.75);
+      }
+      select {
+        padding: 11px;
+        border: 1px solid #7d7d7d;
+        appearance: none;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 0.7rem center;
+        background-size: 1em;
+        padding-right: 35px;
+      }
+    }
+  }
+  .payment {
+    margin-top: 20px;
+  }
+  .below {
+    margin-top: 16px;
+    text-align: center;
   }
 }
 
@@ -97,9 +136,6 @@ body {
   position: absolute;
 }
 
-.one {
-  margin-bottom: 40px;
-}
 .two {
   margin-top: 43px;
 }

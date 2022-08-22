@@ -5,7 +5,50 @@ body {
 }
 
 * {
-  margin: 0;
   padding: 0;
   font-family: "Assistant", sans-serif;
+}
+
+//  Product card
+.item_card {
+  color: #121212;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  max-width: 170px;
+  position: relative;
+
+  &__image {
+    position: relative;
+    img {
+      width: 100%;
+    }
+  }
+  &__sale {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    padding: 4px 12px;
+    background: #3752b2;
+    border-radius: 99px;
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    color: #ffffff;
+  }
+
+  &__title {
+    font-size: 14px;
+    letter-spacing: 0.02em;
+  }
+  &__discount {
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    text-decoration-line: line-through;
+  }
+  &__price {
+    font-size: 16px;
+    letter-spacing: 0.04em;
+  }
 }
