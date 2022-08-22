@@ -13,15 +13,15 @@ class itemCard extends Component
      */
     public $imageSrc;
     public $title;
-    public $price; 
-    public $discount;
+    public $price;
+    public $oldPrice;
 
-    public function __construct($imageSrc, $title, $price, $discount=NULL)
+    public function __construct($imageSrc, $title, $price, $oldPrice=NULL)
     {
         $this->imageSrc = $imageSrc;
-        $this->itemtitle = $title;
-        $this->price = $price; 
-        $this->discount = $discount;
+        $this->title = $title;
+        $this->price = $price;
+        $this->oldPrice = $oldPrice;
     }
 
     /**
