@@ -1,0 +1,121 @@
+body {
+  max-width: 375px;
+  margin-left: 12.5px;
+}
+body h1 {
+  padding-left: 0.781rem;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 39px;
+  color: #121212;
+}
+body .filter-wrapper {
+  display: flex;
+  gap: 172px;
+  margin-top: 19px;
+}
+body .filter-wrapper .top-filter {
+  display: flex;
+  gap: 11px;
+  width: 20px;
+  height: 20px;
+}
+body .filter-wrapper .top-filter img {
+  width: 14px;
+  height: 12px;
+  align-self: center;
+}
+body .filter-wrapper p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+body .links {
+  display: flex;
+  flex-direction: column;
+  gap: 41px;
+  margin-top: 41px;
+}
+body .links h1 {
+  margin-bottom: 30px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 116%;
+  color: #121212;
+}
+body .links .wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0.02em;
+  color: #121212;
+}
+body .links .sub-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body .links .sub-wrap input {
+  width: 331px;
+  height: 48px;
+}
+body .links .sub-wrap input::-moz-placeholder {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 15px;
+  letter-spacing: 0.04em;
+  color: rgba(18, 18, 18, 0.75);
+  padding-left: 10px;
+}
+body .links .sub-wrap input:-ms-input-placeholder {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 15px;
+  letter-spacing: 0.04em;
+  color: rgba(18, 18, 18, 0.75);
+  padding-left: 10px;
+}
+body .links .sub-wrap input::placeholder,
+body .links .sub-wrap input[type=text] {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 15px;
+  letter-spacing: 0.04em;
+  color: rgba(18, 18, 18, 0.75);
+  padding-left: 10px;
+}
+body .links .icon-wrap {
+  display: flex;
+  gap: 26px;
+  margin-top: 10px;
+}
+body .links .icon-wrap img {
+  fill: #121212;
+}
+
+.line {
+  width: 375px;
+  border-top: 1px solid #d0d0d0;
+  position: absolute;
+}
+
+.one {
+  margin-bottom: 40px;
+}
+
+.two {
+  margin-top: 43px;
+}/*# sourceMappingURL=collection.css.map */
