@@ -62,5 +62,23 @@
 
   </div>
   <div class="line two"></div>
+<footer>
+  <div>
+    <div>
+      <p>Country/region</p>
+      <select name="currency" id="">
+      <option>Canada (CAD $)</option>
+      <option>Euro (EUR) </option>
+      </select>
+    </div>
+    <div>
+      <p>Language</p>
+      <select name="language" id="">
+      <option></option>
+      </select>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
