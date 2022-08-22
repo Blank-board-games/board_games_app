@@ -15,7 +15,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 7px;
-  max-width: 170px;
+  width: 170px;
   position: relative;
 }
 .item_card__image {
@@ -49,4 +49,17 @@ body {
 .item_card__price {
   font-size: 16px;
   letter-spacing: 0.04em;
+}
+
+.content {
+  margin: 0 12.5px;
+}
+
+@media screen and (min-width: 900px) {
+  .content {
+    margin: 0 36px;
+  }
+  .item_card {
+    width: 260px;
+  }
 }/*# sourceMappingURL=style.css.map */
