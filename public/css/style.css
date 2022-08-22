@@ -9,6 +9,15 @@ body {
   font-family: "Assistant", sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+svg {
+  vertical-align: middle;
+}
+
 .banner {
   width: 100%;
   height: 37px;
@@ -21,15 +30,21 @@ body {
 .navigation {
   height: 60px;
   width: 100%;
-  border: 1px solid #E1E3E5;
+  border-top: 1px solid #E1E3E5;
+  border-bottom: 1px solid #E1E3E5;
+  box-sizing: border-box;
+}
+.navigation .content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
-  box-sizing: border-box;
+  height: 100%;
 }
 .navigation__hamburger {
   padding: 10px;
+}
+.navigation__hamburger .close-btn {
+  display: none;
 }
 .navigation__menu {
   display: none;
@@ -40,15 +55,58 @@ body {
   list-style: none;
   gap: 20px;
 }
+.navigation__menu .submenu {
+  display: none;
+}
 .navigation__options {
   display: flex;
-  gap: 20px;
-}
-.navigation__options svg {
-  vertical-align: middle;
 }
 .navigation__options .account {
   display: none;
+}
+.navigation__options .cart {
+  position: relative;
+}
+.navigation__options div {
+  padding: 10px;
+}
+
+.cart-item-count {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  display: block;
+  width: 17px;
+  height: 17px;
+  background: #000;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 10px;
+  line-height: 17px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.navigation__hamburger.navigation__hamburger--open .close-btn {
+  display: block;
+}
+.navigation__hamburger.navigation__hamburger--open .open-btn {
+  display: none;
+}
+.navigation__hamburger.navigation__hamburger--open ~ .left .navigation__menu {
+  position: absolute;
+  top: 97px;
+  left: 0;
+  display: block;
+  width: 100vw;
+  height: calc(100vh - 97px);
+  padding: 50px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.menu-item.menu-item--open + .submenu {
+  display: block;
 }
 
 .item_card {
@@ -91,4 +149,23 @@ body {
 .item_card__price {
   font-size: 16px;
   letter-spacing: 0.04em;
+}
+
+@media screen and (min-width: 600px) {
+  .navigation .left {
+    display: flex;
+    gap: 50px;
+  }
+  .navigation__hamburger {
+    display: none;
+  }
+  .navigation__menu {
+    display: block;
+  }
+  .navigation__menu ul {
+    flex-direction: row;
+  }
+  .navigation__options .account {
+    display: block;
+  }
 }/*# sourceMappingURL=style.css.map */

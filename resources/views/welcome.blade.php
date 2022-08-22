@@ -11,6 +11,10 @@
         <link href="{{asset('css/style.css')}}" rel="stylesheet">
     </head>
     <x-navigation></x-navigation>
+    <div class="test">
+        <h2>Helo</h2>
+    </div>
+    <x-footer></x-footer>
     <script src="{{asset('js/script.js')}}"></script>
     </body>
 </html>

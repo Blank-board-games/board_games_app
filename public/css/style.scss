@@ -11,6 +11,15 @@ body {
   font-family: 'Assistant', sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+svg {
+  vertical-align: middle;
+}
+
 // Navigation component style
 
 .banner {
@@ -26,15 +35,23 @@ body {
 .navigation {
   height: 60px;
   width: 100%;
-  border: 1px solid #E1E3E5;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
+  border-top: 1px solid #E1E3E5;
+  border-bottom: 1px solid #E1E3E5;
   box-sizing: border-box;
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
 
   &__hamburger {
     padding: 10px;
+
+    .close-btn {
+      display: none;
+    }
   }
 
   &__menu  {
@@ -46,32 +63,76 @@ body {
       gap: 20px;
 
       .menu-item {
-        
+
       }
+    }
+
+    .submenu {
+      display: none;
     }
   }
 
   &__options {
     display: flex;
-    gap: 20px;
-
-    svg {
-      vertical-align: middle;
-    }
+    // gap: 20px;
 
     .account {
       display: none;
     }
+
+    .cart {
+      position: relative;
+    }
+
+    div {
+      padding: 10px;
+    }
   }
 }
 
-.navigation__hamburger.open {
-  // ~ .navigation__menu {
-  //   display: block;
-  // }
-
+.cart-item-count {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  display: block;
+  width: 17px;
+  height: 17px;
+  background: #000;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 10px;
+  line-height: 17px;
+  text-align: center;
+  font-weight: bold;
 }
 
+.navigation__hamburger.navigation__hamburger--open {
+  .close-btn {
+    display: block;
+  }
+
+  .open-btn {
+    display: none;
+  }
+
+  ~ .left .navigation__menu {
+    position: absolute;
+    top: calc(60px + 37px);
+    left: 0;
+    display: block;
+    width: 100vw;
+    height: calc(100vh - (60px + 37px));
+    padding: 50px;
+    background: #fff;
+    box-sizing: border-box;
+  }
+}
+
+.menu-item.menu-item--open {
+  + .submenu {
+    display: block;
+  }
+}
 
   //  Product card 
 .item_card{ 
@@ -116,4 +177,39 @@ body {
     letter-spacing: 0.04em;
   }
 
+}
+
+@media screen and (min-width:600px) {
+  .navigation {
+
+    .left {
+      display: flex;
+      gap: 50px;
+    }
+
+    &__hamburger {
+      display: none;
+    }
+
+    &__menu {
+      display: block;
+
+      ul {
+        flex-direction: row;
+      }
+    }
+
+
+    &__options {
+
+      .account {
+        display: block;
+      }
+
+    }
+  }
+}
+
+@media screen and (min-width:900px) {
+  
 }
