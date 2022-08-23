@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\CatalogueController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +20,10 @@ use Illuminate\Support\Facades\Route;
 //     return view('homepage');
 // });
 
-Route::get('/', function () {
-    return view('homepage');
-});
+Route::get('/', [CatalogueController::class, 'homepage']);
+
+Route::get('/test', [CategoryController::class, 'index']);
+
 
 Route::get('/catalogue', function () {
     return view('collection/collection');
