@@ -4,7 +4,6 @@ body {
 body .clear-all-action {
   width: 336px;
   height: 79px;
-  border: 1px solid black;
   display: flex;
   gap: 65px;
   margin-top: 16px;
@@ -38,7 +37,7 @@ body .filter-header {
   gap: 4px;
   height: 55px;
   width: 336px;
-  border: 1px solid black;
+  margin-bottom: 30px;
 }
 body .filter-header h1 {
   font: inherit;
@@ -58,6 +57,7 @@ body .filter-header p {
   margin: 0;
 }
 body .filter-header .close {
+  padding: 10px;
   width: 32px;
   height: 32px;
 }
@@ -78,13 +78,13 @@ body .filter-header .close:after {
   transform: rotate(-45deg);
 }
 body .filter-base {
-  border: 1px solid black;
   width: 336px;
   height: 491px;
 }
 body .filter-base .sort-option {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 body .filter-base .sort-option p {
   font-weight: 400;
@@ -94,7 +94,6 @@ body .filter-base .sort-option p {
   color: #121212;
 }
 body .sort-availability {
-  border: 1px solid black;
   width: 336px;
   height: 491px;
 }
@@ -117,7 +116,6 @@ body .sort-availability .stock-option label {
   color: #121212;
 }
 body .price-sorting {
-  border: 1px solid black;
   width: 336px;
   height: 491px;
 }
@@ -140,7 +138,6 @@ body .price-sorting .from-to-wrapper .from-to {
   padding: 15px 14px 17px 16px;
 }
 body .age-sort {
-  border: 1px solid black;
   width: 336px;
   height: 491px;
 }
@@ -228,4 +225,11 @@ label {
   line-height: 150%;
   letter-spacing: 0.02em;
   color: #121212;
+}
+
+/**************/
+/* hide class */
+/**************/
+.hide {
+  display: none;
 }/*# sourceMappingURL=filters.css.map */

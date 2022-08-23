@@ -3,7 +3,7 @@ body {
   .clear-all-action {
     width: 336px;
     height: 79px;
-    border: 1px solid black;
+
     display: flex;
     gap: 65px;
     margin-top: 16px;
@@ -38,7 +38,7 @@ body {
     gap: 4px;
     height: 55px;
     width: 336px;
-    border: 1px solid black;
+    margin-bottom: 30px;
 
     h1 {
       font: inherit;
@@ -58,6 +58,7 @@ body {
       margin: 0;
     }
     .close {
+      padding: 10px;
       width: 32px;
       height: 32px;
     }
@@ -80,12 +81,12 @@ body {
     }
   }
   .filter-base {
-    border: 1px solid black;
     width: 336px;
     height: 491px;
     .sort-option {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       p {
         font-weight: 400;
         font-size: 16px;
@@ -96,7 +97,6 @@ body {
     }
   }
   .sort-availability {
-    border: 1px solid black;
     width: 336px;
     height: 491px;
     .availability {
@@ -119,7 +119,6 @@ body {
     }
   }
   .price-sorting {
-    border: 1px solid black;
     width: 336px;
     height: 491px;
     .price {
@@ -142,7 +141,6 @@ body {
     }
   }
   .age-sort {
-    border: 1px solid black;
     width: 336px;
     height: 491px;
     .age {
@@ -227,4 +225,12 @@ label {
   line-height: 150%;
   letter-spacing: 0.02em;
   color: #121212;
+}
+
+/**************/
+/* hide class */
+/**************/
+
+.hide {
+  display: none;
 }

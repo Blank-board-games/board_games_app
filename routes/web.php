@@ -13,10 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('homepage');
+// });
+
 Route::get('/', function () {
+    return view('homepage');
+});
+
+Route::get('/catalogue', function () {
     return view('collection/collection');
 });
 
-Route::get('/filters', function () {
+Route::get('/catalogue/filters', function () {
     return view('collection/filters');
 });

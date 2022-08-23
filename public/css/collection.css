@@ -10,26 +10,37 @@ body h1 {
 }
 body .filter-wrapper {
   display: flex;
-  gap: 172px;
   margin-top: 19px;
   margin-bottom: 46px;
+  justify-content: space-between;
+  align-items: center;
 }
 body .filter-wrapper .top-filter {
-  display: flex;
   gap: 11px;
 }
-body .filter-wrapper .top-filter img {
+body .filter-wrapper .top-filter a {
+  display: flex;
+  gap: 13px;
+}
+body .filter-wrapper .top-filter a img {
   width: 14px;
   height: 12px;
   align-self: center;
+  margin-right: 3px;
 }
-body .filter-wrapper p {
+body .filter-wrapper span {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 150%;
   letter-spacing: 0.02em;
   white-space: nowrap;
+}
+body .filter-wrapper .product-count p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0.02em;
 }
 body .cards {
   display: grid;
