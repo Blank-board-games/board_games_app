@@ -60,7 +60,9 @@
 </div>
 <div class="sub-wrap">
 <h1 class="subscription">Subscribe to our emails</h1>
+<label>
 <input type="text" placeholder="Email">
+</label>
 <div class="icon-wrap">
   <img src="{{asset('icons/twit.svg')}}" alt="">
   <img src="{{asset('icons/facebook.svg')}}" alt="">

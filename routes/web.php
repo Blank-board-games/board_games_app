@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('collection');
+    return view('collection/collection');
+});
+
+Route::get('/filters', function () {
+    return view('collection/filters');
 });

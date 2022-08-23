@@ -66,6 +66,7 @@ body {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
       input {
         width: 331px;
         height: 48px;
@@ -130,6 +131,9 @@ body {
   }
 }
 
+/*********************/
+/* horizontal lines  */
+/*********************/
 .line {
   width: 375px;
   border-top: 1px solid #d0d0d0;
@@ -138,4 +142,22 @@ body {
 
 .two {
   margin-top: 43px;
+}
+
+/*********************/
+/* email input arrow */
+/*********************/
+
+label {
+  position: relative;
+}
+
+label:before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  background: url("{{asset('icons/emailarrow.svg')}}");
 }
