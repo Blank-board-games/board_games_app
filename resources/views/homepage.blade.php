@@ -24,14 +24,14 @@
                 <p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.</p>
             </div>
             <div class="catalog">
-                <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="Hobo Small" price="195.00" oldPrice="195.00" > </x-item-card> 
-                <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="Bo Soft Strap" price="365.00" > </x-item-card> 
-                <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="Hobo Large" price="615.00"> </x-item-card> 
-                <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="Storml" price="545.00" oldPrice="195.00" > </x-item-card> 
-                <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="Hobo Small" price="195.00" > </x-item-card> 
-                <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="Bo Soft Strap" price="365.00" > </x-item-card> 
-                <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="Hobo Large" price="195.00" oldPrice="615.00" > </x-item-card> 
-                <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="Storml" price="545.00"  > </x-item-card>  
+                @foreach($products as $product)
+                    @if(isset($product->new_price))
+                    {{-- TODO: fix image path --}}
+                        <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="{{$product->title}}" price="{{$product->new_price}}" oldPrice="{{$product->price}}" > </x-item-card> 
+                    @else
+                        <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="{{$product->title}}" price="{{$product->price}}" > </x-item-card>
+                    @endif 
+                @endforeach
             </div>
             <div class="video">
                 <iframe src="https://www.youtube.com/embed/MHhp9NEF79E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
