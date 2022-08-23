@@ -5,18 +5,16 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <title>I'm sad and alone</title>
 
         <!-- CSS -->
         <link href="{{asset('css/style.css')}}" rel="stylesheet">
-
-
     </head>
-    
-    <div>
-        <h1>Test font</h1>
+    <x-navigation></x-navigation>
+    <div class="test">
+        <h2>Helo</h2>
     </div>
-    <script src="{{asset('js/script.css')}}"></script>
+    <x-footer></x-footer>
+    <script src="{{asset('js/script.js')}}"></script>
     </body>
 </html>
