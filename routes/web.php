@@ -21,6 +21,11 @@ Route::get('/', function () {
     return view('homepage');
 });
 
+Route::get('/test', function () {
+    return view('welcome');
+});
+
+
 Route::get('/catalogue', function () {
     return view('collection');
 });

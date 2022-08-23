@@ -11,6 +11,9 @@
         <link href="{{asset('css/style.css')}}" rel="stylesheet">
     </head>
     <x-navigation></x-navigation>
+
+    <x-product-add-form></x-product-add-form>
+
     <div class="test">
         <h2>Helo</h2>
     </div>
