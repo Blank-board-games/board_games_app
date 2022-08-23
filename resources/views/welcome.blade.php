@@ -12,8 +12,8 @@
     </head>
     <x-navigation></x-navigation>
 
-    <x-product-add-form :categories="$categories"></x-product-add-form>
-    <x-category-add-form></x-category-add-form>
+    <!-- <x-product-add-form :categories="$categories"></x-product-add-form>
+    <x-category-add-form></x-category-add-form> -->
 
 
     <div class="test">
