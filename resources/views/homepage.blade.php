@@ -24,13 +24,13 @@
                 <p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.</p>
             </div>
             <div class="catalog">
-                <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="Hobo Small" price="195.00" discount="195.00" > </x-item-card> 
+                <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="Hobo Small" price="195.00" oldPrice="195.00" > </x-item-card> 
                 <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="Bo Soft Strap" price="365.00" > </x-item-card> 
                 <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="Hobo Large" price="615.00"> </x-item-card> 
-                <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="Storml" price="545.00" discount="195.00" > </x-item-card> 
+                <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="Storml" price="545.00" oldPrice="195.00" > </x-item-card> 
                 <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="Hobo Small" price="195.00" > </x-item-card> 
                 <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="Bo Soft Strap" price="365.00" > </x-item-card> 
-                <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="Hobo Large" price="195.00" discount="615.00" > </x-item-card> 
+                <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="Hobo Large" price="195.00" oldPrice="615.00" > </x-item-card> 
                 <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="Storml" price="545.00"  > </x-item-card>  
             </div>
             <div class="video">
