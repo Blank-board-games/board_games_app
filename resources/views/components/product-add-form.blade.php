@@ -1,4 +1,4 @@
-<form action="api/product/add" method="post" enctype="multipart/form-data">
+<form id="add-product-form" action="api/product/add" method="post" enctype="multipart/form-data">
   <label for="title">Title</label>
   <input type="text" name="title" id="title"><br>
 
@@ -16,7 +16,9 @@
 
   <label for="category">Category</label>
   <select name="category" id="category">
-    <option value="asasas">asasas</option>
+    @foreach($categories as $category)
+      <option value="{{$category->id}}">{{$category->title}}</option>
+    @endforeach
   </select><br>
 
   <label for="images">Images</label>
