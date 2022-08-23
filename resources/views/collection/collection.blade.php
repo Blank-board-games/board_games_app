@@ -83,15 +83,17 @@
         <div class="payment">
           <p>Country/region</p>
           <select name="currency" id="">
-            <option>Canada (CAD $)</option>
             <option>Euro (EUR) </option>
+            <option>U.S. Dollar (USD) </option>
+            <option>Swiss Franc (CHF) </option>
           </select>
         </div>
         <div class="payment">
           <p>Language</p>
           <select name="language" id="">
             <option>English</option>
-            <option>Spain</option>
+            <option>Spanish</option>
+            <option>Latvian</option>
           </select>
         </div>
       </div>
