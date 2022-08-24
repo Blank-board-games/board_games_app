@@ -17,10 +17,12 @@
     <div class="filter-container">
       <div class="filters">
         <p>Filter:</p>
-        <select name="" id="age">
-          <option value="adults">Age</option>
-          <option value="adults">Adults</option>
-          <option value="kids">Kids</option>
+
+        <select name="category" id="category">
+          <option value="category">Category</option>
+          @foreach($categories as $category)
+          <option value="{{$category->id}}">{{$category->title}}</option>
+          @endforeach
         </select>
         <select name="" id="price">
           <option value="adults">Price</option>

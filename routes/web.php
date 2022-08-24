@@ -24,10 +24,8 @@ Route::get('/', [CatalogueController::class, 'homepage']);
 
 Route::get('/test', [CategoryController::class, 'index']);
 
+Route::get('/full', [CatalogueController::class, 'index']);
 
-Route::get('/full', function () {
-    return view('collection/collectionfull');
-});
 
 Route::get('/catalogue', function () {
     return view('collection/collection');
