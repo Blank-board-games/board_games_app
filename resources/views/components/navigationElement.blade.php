@@ -14,17 +14,28 @@
       </div>
       <div class="left">
         <div class="navigation__logo">
-          <img src="{{asset('img/logo.svg')}}" alt="">
+          <a href="#">
+            <img src="{{asset('img/logo.svg')}}" alt="">
+          </a>
         </div>
         <nav class="navigation__menu">
           <ul>
-            <li class="menu-item group"><a href="#">Board games</a></li>
+            <li class="menu-item group">
+              <a href="#">Board games 
+                <span class="submenu__arrow">
+                  <svg width="10" height="6" viewBox="0 0 10 6">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.639893 1.17711L1.347 0.470001L4.99345 4.11645L8.63989 0.470001L9.347 1.17711L4.99345 5.53066L0.639893 1.17711Z" fill="black"/>
+                  </svg>
+                </span>
+              </a>
             <ul class="submenu">
-              <li><a href="#">Strategic</a></li>
-              <li><a href="#">Puzzles</a></li>
-              <li><a href="#">Roleplay</a></li>
+                <li><a href="/catalogue">Shop all</a></li>
+              @foreach($categories as $category)
+                <li><a href="#">{{$category->title}}</a></li>
+              @endforeach
             </ul>
-            <li class="menu-item group"><a href="#">Card games</a></li>
+            </li>
+            <li class="menu-item"><a href="#">Contact</a></li>
           </ul>
         </nav>
       </div>

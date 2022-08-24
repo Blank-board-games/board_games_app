@@ -21,6 +21,13 @@ svg {
 }
 
 // Navigation component style
+header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 999;
+}
 
 .banner {
   width: 100%;
@@ -60,21 +67,30 @@ svg {
       display: flex;
       flex-direction: column;
       list-style: none;
-      gap: 20px;
+      gap: 10px;
+      position: relative;
+    }
 
-      .menu-item {
-
-      }
+    .menu-item a {
+      padding: 10px;
+      display: inline-block;
     }
 
     .submenu {
       display: none;
+      flex-direction: column;
+      gap: 10px;
+      padding: 10px 20px;
+      background: #fff;
+
+      &__arrow svg {
+        transform: rotate(-90deg);
+      }
     }
   }
 
   &__options {
     display: flex;
-    // gap: 20px;
 
     .account {
       display: none;
@@ -129,8 +145,12 @@ svg {
 }
 
 .menu-item.menu-item--open {
-  + .submenu {
-    display: block;
+  .submenu {
+    display: flex;
+  }
+
+  .submenu__arrow svg {
+    transform: rotate(0);
   }
 }
 
@@ -183,12 +203,11 @@ svg {
   box-sizing: border-box;
 }
 
-
 @media screen and (min-width:600px) {
   .navigation {
-
     .left {
       display: flex;
+      align-items: center;
       gap: 50px;
     }
 
@@ -204,13 +223,24 @@ svg {
       }
     }
 
-
     &__options {
 
       .account {
         display: block;
       }
+    }
+  }
 
+  .menu-item.menu-item--open {
+    .submenu {
+      position: absolute;
+      top: 50px;
+      width: 200px;
+      gap: 10px;
+
+      li:hover {
+        background: #f7f8f9;
+      }
     }
   }
 }
