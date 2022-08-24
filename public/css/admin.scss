@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant&display=swap");
+
+body {
+  margin: 0;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Assistant", sans-serif;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+svg {
+  vertical-align: middle;
+}
+
+.content {
+  margin: 0 12.5px;
+  box-sizing: border-box;
+}
+
+header {
+  height: 53px;
+  background: #fff;
+  border: 1px solid #E1E3E5;
+
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 200px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 53px;
+  border: 1px solid #E1E3E5;
+
+  &__tablinks {
+    font-size: 16px;
+    font-weight: bold;
+    height: 40px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #E1E3E5;
+  }
+}
+
+.main {
+  margin: 40px;
+  margin-left: 220px;
+  background: #eee;
+  padding: 30px;
+  border-radius: 10px;
+
+  .tabcontent:not(:first-child) {
+    display: none;
+  }
+}
+
+.left {
+  display: flex;
+  align-items: center;
+
+  &__exit {
+    padding: 15px;
+    border-right: 1px solid #E1E3E5;
+  }
+
+  &__heading {
+    padding: 15px;
+  }
+}
+
+form {
+  input,
+  textarea,
+  select {
+    width: 100%;
+    height: 30px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .content {
+    margin: 0 36px;
+  }
+}

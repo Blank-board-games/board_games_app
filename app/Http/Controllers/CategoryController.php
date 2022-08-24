@@ -18,7 +18,7 @@ class CategoryController extends BaseController
   public function index()
   {
     $categories =  Category::all();
-    return view('welcome')->with('categories', $categories);
+    return view('admin')->with('categories', $categories);
   }
 
   public function add()
