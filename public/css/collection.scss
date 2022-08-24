@@ -1,0 +1,175 @@
+body {
+  max-width: 375px;
+
+  h1 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 39px;
+    color: #121212;
+  }
+  .filter-wrapper {
+    display: flex;
+    margin-top: 19px;
+    margin-bottom: 46px;
+    justify-content: space-between;
+    align-items: center;
+    .top-filter {
+      gap: 11px;
+      a {
+        display: flex;
+        gap: 13px;
+        img {
+          width: 14px;
+          height: 12px;
+          align-self: center;
+          margin-right: 3px;
+        }
+      }
+    }
+    span {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 150%;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .product-count {
+      p {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 150%;
+        letter-spacing: 0.02em;
+      }
+    }
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 40px;
+  }
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 41px;
+    margin-top: 82px;
+    h1 {
+      margin-bottom: 30px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 116%;
+      color: #121212;
+    }
+    .wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 150%;
+      letter-spacing: 0.02em;
+      color: #121212;
+    }
+    .sub-wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      input {
+        width: 331px;
+        height: 48px;
+      }
+      input::placeholder,
+      input[type="text"] {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 15px;
+        letter-spacing: 0.04em;
+        color: rgba(18, 18, 18, 0.75);
+        padding-left: 10px;
+      }
+    }
+    .icon-wrap {
+      display: flex;
+      gap: 26px;
+      margin-top: 20px;
+      img {
+        fill: #121212;
+        cursor: pointer;
+      }
+    }
+  }
+  .footer-wrap {
+    display: flex;
+    gap: 7px;
+    margin-top: 41px;
+    padding-top: 41px;
+    margin-left: 63.5px;
+    .payment {
+      display: flex;
+      flex-direction: column;
+
+      p {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 17px;
+        letter-spacing: 0.03em;
+        color: rgba(18, 18, 18, 0.75);
+      }
+      select {
+        padding: 11px;
+        border: 1px solid #7d7d7d;
+        appearance: none;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 0.7rem center;
+        background-size: 1em;
+        padding-right: 35px;
+      }
+    }
+  }
+  .payment {
+    margin-top: 20px;
+  }
+  .below {
+    margin-top: 16px;
+    text-align: center;
+  }
+}
+
+/*********************/
+/* horizontal lines  */
+/*********************/
+.line {
+  width: 375px;
+  border-top: 1px solid #d0d0d0;
+  position: absolute;
+}
+
+.two {
+  margin-top: 43px;
+}
+
+/*********************/
+/* email input arrow */
+/*********************/
+
+label {
+  position: relative;
+}
+
+label:before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  background: url("{{asset('icons/emailarrow.svg')}}");
+}

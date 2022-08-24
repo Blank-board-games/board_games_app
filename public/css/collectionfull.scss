@@ -1,0 +1,134 @@
+body {
+  max-width: 1200px;
+
+  .filter-container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 60px;
+    .filters {
+      display: flex;
+      gap: 24px;
+      select {
+        border: none;
+        text-align: end;
+        padding-right: 3px;
+        outline: none;
+        cursor: pointer;
+      }
+    }
+  }
+  .cards {
+    margin: 40px 0 115px 60px;
+    display: flex;
+    gap: 9.5px;
+    justify-content: center;
+  }
+  .links {
+    display: flex;
+    gap: 180px;
+    margin-top: 65px;
+    margin-left: 60px;
+  }
+  .sub-wrap {
+    display: flex;
+    margin: 64px 0 64px 60px;
+    justify-content: space-between;
+    align-items: center;
+    input {
+      width: 331px;
+      height: 48px;
+    }
+    input::placeholder,
+    input[type="text"] {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 15px;
+      letter-spacing: 0.04em;
+      color: rgba(18, 18, 18, 0.75);
+      padding-left: 10px;
+    }
+    .icons {
+      display: flex;
+      justify-content: center;
+      padding-top: 20px;
+      gap: 24px;
+      width: 364px;
+      height: 20px;
+      cursor: pointer;
+    }
+  }
+  .footer-container {
+    display: flex;
+    gap: 485px;
+    align-items: center;
+
+    .footer-wrap {
+      display: flex;
+      gap: 7px;
+      margin: 41px 0 64px 60px;
+      padding-top: 41px;
+
+      .payment {
+        display: flex;
+        flex-direction: column;
+
+        p {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 13px;
+          line-height: 17px;
+          letter-spacing: 0.03em;
+          color: rgba(18, 18, 18, 0.75);
+        }
+        select {
+          padding: 11px;
+          border: 1px solid #7d7d7d;
+          appearance: none;
+          background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+          background-repeat: no-repeat;
+          background-position: right 0.7rem center;
+          background-size: 1em;
+          padding-right: 35px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .payment-icons {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+    cursor: pointer;
+  }
+}
+
+p {
+  color: #121212;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0.02em;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 52px;
+  margin-left: 60px;
+}
+
+hr {
+  color: #d0d0d0;
+  width: 1200px;
+}
+
+h2 {
+  color: #121212;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 116%;
+}
