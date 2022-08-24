@@ -32,7 +32,7 @@ class CategoryController extends BaseController
 
     if($category) $status = 'Category added succesfully';
 
-    return redirect('/test')->with('status', $status);
+    return redirect('/admin')->with('status', $status);
 
   }
 }

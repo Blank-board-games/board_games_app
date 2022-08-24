@@ -9,10 +9,16 @@
   <input type="number" name="count" id="count"><br>
 
   <label for="price">Price</label><br>
-  <input type="text" name="price" id="price"><br>
+  <div class="price-container">
+    <span>€</span>
+    <input type="number" step="0.01" name="price" id="price"><br>
+  </div>
 
-  <label for="age">Age recommendation: +</label><br>
-  <input type="number" name="age" id="age"><br>
+  <label for="age">Age recommendation:</label><br>
+  <div class="age-container">
+    <span>+</span>
+    <input type="number" name="age" id="age"><br>
+  </div>
 
   <label for="category">Category</label><br>
   <select name="category" id="category">

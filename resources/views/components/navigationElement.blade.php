@@ -14,7 +14,7 @@
       </div>
       <div class="left">
         <div class="navigation__logo">
-          <a href="#">
+          <a href="<?= URL::to('/'); ?>">
             <img src="{{asset('img/logo.svg')}}" alt="">
           </a>
         </div>

@@ -24,10 +24,12 @@ svg {
 }
 
 header {
+  position: sticky;
+  top: 0;
   height: 53px;
   background: #fff;
   border: 1px solid #E1E3E5;
-
+  z-index: 999;
 }
 
 .sidebar {
@@ -48,6 +50,19 @@ header {
     background: none;
     border: none;
     border-bottom: 1px solid #E1E3E5;
+
+    &.active {
+      background: #E1E3E5;
+
+      &::before {
+        content: "\203A";
+        display: block;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        right: 10px;
+      }
+    }
   }
 }
 
@@ -60,6 +75,11 @@ header {
 
   .tabcontent:not(:first-child) {
     display: none;
+  }
+
+  h3 {
+    margin: 20px 0;
+    text-align: center;
   }
 }
 
@@ -82,8 +102,60 @@ form {
   textarea,
   select {
     width: 100%;
-    height: 30px;
+    height: 50px;
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #E1E3E5;
+    border-radius: 5px;
   }
+
+  textarea {
+    height: 60px;
+    resize: vertical;
+  }
+
+  .age-container,
+  .price-container {
+    position: relative;
+    input {
+      padding-left: 25px;
+    }
+
+    span {
+      position: absolute;
+      height: 50px;
+      width: 30px;
+      text-align: center;
+      left: 0;
+      line-height: 50px;
+      color: #868686;
+      font-size: 20px;
+    }
+  }
+
+  // #age::before {
+  //   content: "+";
+  //   display: block;
+  //   height: 30px;
+  //   width: 10px;
+  //   left: 0;
+  // }
+
+  button {
+    height: 60px;
+    width: 50%;
+    margin: 20px auto;
+    background: #000;
+    color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
+  }  
+}
+
+.category-item {
+  line-height: 30px;
 }
 
 @media screen and (min-width: 900px) {
