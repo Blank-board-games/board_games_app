@@ -11,6 +11,7 @@
         <link href="{{asset('css/homepage.css')}}" rel="stylesheet">
     </head>
     <body>
+        <x-navigation></x-navigation>
         <div class="intro">
             <div class="intro__content">   
                 <h1>Industrial design meets fashion</h1>
