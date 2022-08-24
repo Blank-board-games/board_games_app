@@ -25,6 +25,22 @@ Route::get('/', [CatalogueController::class, 'homepage']);
 Route::get('/test', [CategoryController::class, 'index']);
 
 
+Route::get('/full', function () {
+    return view('collection/collectionfull');
+});
+
 Route::get('/catalogue', function () {
-    return view('collection');
+    return view('collection/collection');
+});
+
+Route::get('/catalogue/filters', function () {
+    return view('collection/filters');
+});
+
+Route::get('/catalogue/filtersfull', function () {
+    return view('collection/filtersfull');
+});
+
+Route::get('/about', function () {
+    return view('about/about');
 });

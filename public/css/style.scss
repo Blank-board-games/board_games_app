@@ -1,16 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Assistant&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Assistant&display=swap");
 
 body {
   margin: 0;
 }
 
 * {
-  margin: 0;
   padding: 0;
-  font-family: 'Assistant', sans-serif;
+  font-family: "Assistant", sans-serif;
 }
-
 a {
   text-decoration: none;
   color: #000;
@@ -42,8 +39,8 @@ header {
 .navigation {
   height: 60px;
   width: 100%;
-  border-top: 1px solid #E1E3E5;
-  border-bottom: 1px solid #E1E3E5;
+  border-top: 1px solid #e1e3e5;
+  border-bottom: 1px solid #e1e3e5;
   box-sizing: border-box;
 
   .content {
@@ -61,7 +58,7 @@ header {
     }
   }
 
-  &__menu  {
+  &__menu {
     display: none;
     ul {
       display: flex;
@@ -154,8 +151,8 @@ header {
   }
 }
 
-  //  Product card 
-.item_card{ 
+//  Product card
+.item_card {
   color: #121212;
   font-weight: 400;
   display: flex;
@@ -163,47 +160,48 @@ header {
   gap: 7px;
   width: 170px;
   position: relative;
-  
-  &__image{
+
+  &__image {
     position: relative;
-    img{ 
+    img {
       width: 100%;
-    } 
+    }
   }
-  &__sale{ 
+  &__sale {
     position: absolute;
     bottom: 8px;
     left: 8px;
     padding: 4px 12px;
-    background: #3752B2;
+    background: #3752b2;
     border-radius: 99px;
     font-weight: 400;
     font-size: 13px;
     letter-spacing: 0.03em;
-    color: #FFFFFF;
+    color: #ffffff;
   }
 
-  &__title{ 
+  &__title {
     font-size: 14px;
     letter-spacing: 0.02em;
   }
-  &__discount{ 
+  &__discount {
     font-size: 14px;
     letter-spacing: 0.02em;
     text-decoration-line: line-through;
   }
-  &__price{ 
+  &__price {
     font-size: 16px;
     letter-spacing: 0.04em;
   }
 }
 
-.content{ 
+.content {
   margin: 0 12.5px;
   box-sizing: border-box;
 }
 
-@media screen and (min-width:600px) {
+
+@media screen and (min-width: 600px) {
   .navigation {
     .left {
       display: flex;
@@ -224,7 +222,6 @@ header {
     }
 
     &__options {
-
       .account {
         display: block;
       }
@@ -244,12 +241,99 @@ header {
     }
   }
 }
-  
+
 @media screen and (min-width: 900px) {
-  .content{ 
+  .content {
     margin: 0 36px;
   }
-  .item_card{ 
+  .item_card {
     width: 260px;
   }
+}
+/**********/
+/* footer */
+/**********/
+
+.links {
+  display: flex;
+  gap: 180px;
+  margin-top: 65px;
+  margin-left: 60px;
+}
+.sub-wrap {
+  display: flex;
+  margin: 64px 0 64px 60px;
+  justify-content: space-between;
+  align-items: center;
+  input {
+    width: 331px;
+    height: 48px;
+  }
+  input::placeholder,
+  input[type="text"] {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 15px;
+    letter-spacing: 0.04em;
+    color: rgba(18, 18, 18, 0.75);
+    padding-left: 10px;
+  }
+  .icons {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    gap: 24px;
+    width: 364px;
+    height: 20px;
+    cursor: pointer;
+  }
+}
+.footer-container {
+  display: flex;
+  gap: 485px;
+  align-items: center;
+
+  .footer-wrap {
+    display: flex;
+    gap: 7px;
+    margin: 41px 0 64px 60px;
+    padding-top: 41px;
+
+    .payment {
+      display: flex;
+      flex-direction: column;
+
+      p {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 17px;
+        letter-spacing: 0.03em;
+        color: rgba(18, 18, 18, 0.75);
+      }
+      select {
+        padding: 11px;
+        border: 1px solid #7d7d7d;
+        appearance: none;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 0.7rem center;
+        background-size: 1em;
+        padding-right: 35px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.payment-icons {
+  display: flex;
+  gap: 30px;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+hr {
+  color: #d0d0d0;
+  width: 100%;
 }
