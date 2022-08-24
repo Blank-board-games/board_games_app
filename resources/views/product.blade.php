@@ -36,13 +36,10 @@
                         <div class="product__btn-add">+</div>
                     </div>
                 </div>
-                <form action="/cart/add" method="post">
-                    @csrf
-                    @method('POST')
-                    <input type="text" value={{$product->id}} hidden>
+                <a href="{{action([App\Http\Controllers\CartController::class, 'addToCart'], $product->id) }}">
                     <button class="product__btn product__add" type="submit">Add to cart</button>
-                </form>
-                
+                </a>
+
                 <button class="product__btn product__buy">Buy it now</button>
                 @if (isset($product->description))
                     <p class="product__desc">{{ $product->description }}</p>

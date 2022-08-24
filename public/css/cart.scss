@@ -1,4 +1,4 @@
-.cart{ 
+.cart{
     padding-top: 40px;
     padding-bottom: 40px;
 
@@ -6,62 +6,65 @@
     flex-direction: column;
     gap:40px;
     color: #121212;
-    &__header{ 
-        display: flex; 
+    &__header{
+        display: flex;
         justify-content: space-between;
         align-items: center;
         h2{
             font-weight: 400;
             font-size: 30px;
         }
-        a{ 
+        a{
             text-decoration: underline;
             letter-spacing: 0.04em;
         }
     }
-    &__titles{ 
-        display: flex; 
+    &__titles{
+        display: flex;
         justify-content: space-between;
         align-items: center;
         text-transform: uppercase;
         padding-bottom: 16px;
         box-shadow: inset 0px -1px 0px #E1E3E5;
-        
+
         p{
             font-weight: 400;
             font-size: 13px;
             letter-spacing: 0.03em;
             color: rgba(18, 18, 18, 0.75);
         }
-        &-large{ 
+        &-large{
             display: none;
         }
     }
-    &__item{ 
+    &__item{
         width: 100%;
         display: flex;
-        img{ 
+        img{
             width: 74px;
             max-height: 74px;
             padding-right: 20.5px;
         }
     }
     &__info{
-        margin-right: auto; 
+        margin-right: auto;
         h2{
             font-weight: 400;
             font-size: 16px;
             letter-spacing: 0.04em;
         }
     }
-    &__buttons{ 
+    &__buttons{
         display: flex;
         align-items: center;
         gap: 5px;
+        button{
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
     }
-    &__delete{ 
-        cursor: pointer;
-    }
+
     &__counter{
         border: 1px solid #D0D0D0;
         display: flex;
@@ -88,18 +91,18 @@
         -webkit-appearance: none;
         margin: 0;
     }
-    &__total{ 
+    &__total{
         font-weight: 400;
         letter-spacing: 0.04em;
     }
 
-    &__checkout{ 
+    &__checkout{
         display: flex;
         flex-direction: column;
         align-items: center;
         padding-top: 24px;
         gap: 16px;
-        h2{ 
+        h2{
             font-weight: 400;
             font-size: 16px;
             letter-spacing: 0.04em;
@@ -108,9 +111,9 @@
             font-weight: 400;
             font-size: 13px;
             letter-spacing: 0.03em;
-            
+
         }
-        button{ 
+        button{
             background: #000000;
             border: none;
             padding: 16px 0;
@@ -126,7 +129,7 @@
     }
 }
 .similar_prod{
-    max-width: 1200px; 
+    max-width: 1200px;
     margin: 0 auto;
     padding-bottom: 40px;
     h2{
@@ -146,48 +149,48 @@
 @media screen and (min-width: 900px) {
     .cart{
         position: relative;
-        &__item{ 
-            img{ 
+        &__item{
+            img{
                 width: 100px;
                 max-height: 100px;
             }
         }
-        &__titles{ 
-            &-large{ 
+        &__titles{
+            &-large{
                 display: block;
                 margin-left: auto;
                 margin-right: 288px;
             }
         }
-        &__info{    
+        &__info{
             display: flex;
             justify-content: space-between;
-            margin: 0; 
+            margin: 0;
             width: 100%;
         }
-        &__buttons{ 
+        &__buttons{
             padding-right: 200px;
             height: fit-content;
         }
-        &__checkout{ 
+        &__checkout{
             display: flex;
             flex-direction: column;
             align-items: flex-end;
         }
-        &__counter{ 
+        &__counter{
             margin: 0;
         }
     }
 }
 
 @media screen and (min-width: 1200px) {
-    .content{ 
+    .content{
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 40px;
     }
-    .similar_prod{ 
-        &__cards{ 
+    .similar_prod{
+        &__cards{
             justify-content: space-between;
         }
     }
