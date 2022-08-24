@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <x-navigation></x-navigation>
+    {{-- <x-navigation></x-navigation> --}}
     <div class="content wrapper">
         <div class="product">
             <div class="product__images">
@@ -36,9 +36,14 @@
                         <div class="product__btn-add">+</div>
                     </div>
                 </div>
-
-                <div class="product__btn product__add">Add to cart</div>
-                <div class="product__btn product__buy">Buy it now</div>
+                <form action="/cart/add" method="post">
+                    @csrf
+                    @method('POST')
+                    <input type="text" value={{$product->id}} hidden>
+                    <button class="product__btn product__add" type="submit">Add to cart</button>
+                </form>
+                
+                <button class="product__btn product__buy">Buy it now</button>
                 @if (isset($product->description))
                     <p class="product__desc">{{ $product->description }}</p>
                 @endif
