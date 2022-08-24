@@ -193,6 +193,9 @@ header {
     font-size: 16px;
     letter-spacing: 0.04em;
   }
+  &:hover{ 
+    cursor: pointer;
+  }
 }
 
 .content {
@@ -248,6 +251,11 @@ header {
   }
   .item_card {
     width: 260px;
+    &__prices{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
   }
 }
 /**********/
