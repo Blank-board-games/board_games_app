@@ -5,7 +5,7 @@ namespace App\View\Components;
 use App\Models\Category;
 use Illuminate\View\Component;
 
-class navigation extends Component
+class navigationElement extends Component
 {
     /**
      * Create a new component instance.
@@ -27,6 +27,6 @@ class navigation extends Component
      */
     public function render()
     {
-      return view('components.navigation');
+      return view('components.navigationElement');
     }
 }
