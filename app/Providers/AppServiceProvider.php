@@ -26,6 +26,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        Blade::component('navigation', navigationElement::class);
+        Blade::component('navigationElement', navigationElement::class);
     }
 }

@@ -20,8 +20,9 @@
       <option value="{{$category->id}}">{{$category->title}}</option>
     @endforeach
   </select><br>
-
   <label for="images">Images</label>
   <input type="file" name="images[]" id="images" multiple><br>
   <button type="submit" class="form-submit-btn">Submit</button>
 </form>
+
+<img src="{{asset('storage/1/temp-card-img.png')}}" alt="" srcset="">

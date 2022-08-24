@@ -21,11 +21,6 @@ class ProductController extends BaseController
     ], 200);
   }
 
-  public function get()
-  {
-    return response()->json([], 200);
-  }
-
   public function add()
   {
     $groupByEntry = function (&$arr) {
@@ -58,10 +53,10 @@ class ProductController extends BaseController
       'price' => $prod_price,
       'age_recom' => $prod_age,
       'category_id' => $prod_category,
-      'image_path' => 'www/produkts'
+      'image_path' => ''
     ]);
     //Line below needs to be corrected
-    $prod_image_path = Storage::url('category_img3.png');
+    // $prod_image_path = Storage::url('category_img3.png');
 
     Storage::disk('public')->makeDirectory("$product->id");
     $target_dir = __DIR__ . '/uploads';
@@ -83,12 +78,17 @@ class ProductController extends BaseController
       }
     }
 
+    $files = Storage::disk('public')->files("$product->id");
+    $filepath_list = implode(',', $files);
+
+    Product::where('id', $product->id)
+      ->update(['image_path' => $filepath_list]);
+
     $output = [
       "status" => true,
       "data" => $_POST,  //atgriež failu nosaukumus
       "files" => $images,  //atgriež failus
-      "title" => $prod_title,
-      "url" => $prod_image_path
+      "title" => $prod_title
     ];
 
     return redirect('/test')->with('status', $output);
