@@ -36,3 +36,11 @@ Route::get('/catalogue', function () {
 Route::get('/catalogue/filters', function () {
     return view('collection/filters');
 });
+
+Route::get('/catalogue/filtersfull', function () {
+    return view('collection/filtersfull');
+});
+
+Route::get('/about', function () {
+    return view('about/about');
+});
