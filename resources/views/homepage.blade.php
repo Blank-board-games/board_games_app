@@ -26,12 +26,7 @@
             </div>
             <div class="catalog">
                 @foreach($products as $product)
-                    @if(isset($product->new_price))
-                    {{-- TODO: fix image path --}}
-                        <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="{{$product->title}}" price="{{$product->new_price}}" oldPrice="{{$product->price}}" > </x-item-card>
-                    @else
-                        <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="{{$product->title}}" price="{{$product->price}}" > </x-item-card>
-                    @endif
+                    <x-item-card :product="$product"> </x-item-card>
                 @endforeach
             </div>
             <div class="video">

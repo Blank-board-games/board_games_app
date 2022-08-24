@@ -9,11 +9,19 @@ class CatalogueController extends Controller
 {
     public function homepage()
     {
-        $products = Product::limit(8)->offset(0)->orderBy('updated_at', 'DESC')->where('new_price', '<>', 'NULL')->get();
+        $products = Product::limit(8)->offset(0)
+        ->orderBy('updated_at', 'DESC')
+        ->where('new_price', '<>', 'NULL')
+        ->where('count_in_stock', '<>', 0)
+        ->get();
         $count = 8 - $products->count(); //count, to get 8 products
 
         if($count!=0){
-            $addition_products = Product::limit($count)->offset(0)->orderBy('updated_at', 'DESC')->where('new_price', '=', NULL)->get();
+            $addition_products = Product::limit($count)->offset(0)
+            ->orderBy('updated_at', 'DESC')
+            ->where('new_price', '=', NULL)
+            ->where('count_in_stock', '<>', 0)
+            ->get();
             if ($count != 4) {
                 $products = $products->merge($addition_products);
             }
@@ -40,7 +48,11 @@ class CatalogueController extends Controller
             ->get();
         $count = 4 - $similar_products->count(); //count, to get 4 products
         if ($count != 0) {
-            $addition_products = Product::limit($count)->offset(0)->orderBy('updated_at', 'DESC')->get();
+            $addition_products = Product::limit($count)->offset(0)
+            ->where('category_id', '<>', $product->category_id)
+            ->where('id', '<>', $id)
+            ->where('count_in_stock', '<>', 0)
+            ->orderBy('updated_at', 'DESC')->get();
             if($count!=4) {
                 $similar_products = $similar_products->merge($addition_products);
             }

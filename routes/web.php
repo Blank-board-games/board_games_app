@@ -21,7 +21,7 @@ use App\Http\Controllers\CategoryController;
 // });
 
 Route::get('/', [CatalogueController::class, 'homepage']);
-Route::get('/product/{id}', [CatalogueController::class, 'showProduct'])->where(['id' => '[0-9]+']);
+Route::get('/catalogue/product/{id}', [CatalogueController::class, 'showProduct'])->where(['id' => '[0-9]+']);
 
 Route::get('/test', [CategoryController::class, 'index']);
 

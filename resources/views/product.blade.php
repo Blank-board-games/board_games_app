@@ -13,9 +13,10 @@
 
 <body>
     <x-navigation></x-navigation>
-    <div class="content">
+    <div class="content wrapper">
         <div class="product">
             <div class="product__images">
+                {{-- TODO: fix image path --}}
                 <img src="{{ asset('img/temp-card-img.png') }}" alt="">
             </div>
             <div class="product__information">
@@ -59,12 +60,7 @@
             <h2>You may also like</h2>
             <div class="similar_prod__cards">
                 @foreach($products as $product)
-                    @if(isset($product->new_price))
-                    {{-- TODO: fix image path --}}
-                        <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="{{$product->title}}" price="{{$product->new_price}}" oldPrice="{{$product->price}}" > </x-item-card>
-                    @else
-                        <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="{{$product->title}}" price="{{$product->price}}" > </x-item-card>
-                    @endif
+                    <x-item-card :product="$product" > </x-item-card>
                 @endforeach
 
             </div>
