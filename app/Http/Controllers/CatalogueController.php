@@ -64,7 +64,7 @@ class CatalogueController extends Controller
 
     public function showSearch(Request $request){
         if($request->input('search')){ 
-            $products = $this->search($request); 
+            $products = json_decode($this->search($request)); 
             return view('search')->with('products', $products);
         } 
         return view('search');
@@ -72,6 +72,8 @@ class CatalogueController extends Controller
     }
 
     public function search(Request $request){
-        return Product::where('title', 'LIKE', '%' . $request->get('search') . '%')->get();
+        $products =  Product::where('title', 'LIKE', '%' . $request->get('search') . '%')
+        ->get();
+        return json_encode($products);
     }
 }
