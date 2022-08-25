@@ -31,4 +31,4 @@
   <button type="submit" class="form-submit-btn">Add</button>
 </form>
 
-<img src="{{asset('storage/1/temp-card-img.png')}}" alt="" srcset="">
+<!-- <img src="{{asset('storage/1/temp-card-img.png')}}" alt="" srcset=""> -->
