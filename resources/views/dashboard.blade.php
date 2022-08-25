@@ -62,7 +62,8 @@
                 <tr>
                   <th>Image</th>
                   <th>Title</th>
-                  <th>Age recommendation</th>
+                  <th>Category</th>
+                  <th>Age</th>
                   <th>Price</th>
                   <th>Count</th>
                   <th></th>
@@ -76,6 +77,7 @@
                       <img src="{{asset('storage/' . $filepath_list[0])}}" alt="" srcset="">
                     </td>
                     <td>{{$product->title}}</td>
+                    <td>{{$product->category->title}}</td>
                     <td>{{$product->age_recom}}</td>
                     <td>{{$product->price}}</td>
                     <td>{{$product->count_in_stock}}</td>
@@ -93,12 +95,33 @@
               <table>
                 <tr>
                   <th>Order ID</th>
-                  <th>Customer name</th>
                   <th>Customer email</th>
+                  <th>Product</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
                   <th>Total SUM</th>
                 </tr>
-                  <tr class="order-item">
+                @foreach($orderIds as $orderId)
+                <tbody>
+                  <tr class="order-number">
+                    <td>{{$orderId->id}}</td>
+                    <td>{{$orderId->email}}</td>
+                    <td colspan="3"></td>
+                    <td>Total</td>
                   </tr>
+                  @foreach($orders as $order)
+                    @if($order->id == $orderId->id)
+                      <tr class="order-item">
+                        <td colspan="2"></td>
+                        <td>{{$order->title}}</td>
+                        <td>{{$order->quantity}}</td>
+                        <td>{{$order->product_price}}</td>
+                        <td>{{$order->product_price * $order->quantity}}</td>
+                      </tr>
+                    @endif
+                  @endforeach
+                </tbody>
+                @endforeach
               </table>
             </div>
 

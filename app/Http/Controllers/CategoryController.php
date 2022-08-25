@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Product;
+use App\Models\Order;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
-use App\Models\Product;
 
 class CategoryController extends BaseController
 {
@@ -18,9 +20,20 @@ class CategoryController extends BaseController
   {
     $categories =  Category::all();
     $products =  Product::all();
+    $query =  DB::table('orders')
+    ->leftjoin('order_product', 'orders.id', '=', 'order_id')
+    ->join('products', 'product_id', '=', 'products.id')
+    ->select('orders.id', 'products.title', 'order_product.quantity' , 'order_product.product_price')
+    ->orderBy('orders.id')
+    ->get();
+    $orderIds = DB::table('orders')
+    ->select('id', 'email')->distinct()->get();
+
     return view('dashboard')
     ->with('categories', $categories)
-    ->with('products', $products);
+    ->with('products', $products)
+    ->with('orderIds', $orderIds)
+    ->with('orders', $query);
   }
 
   public function delete($id) {

@@ -187,7 +187,8 @@ nav {
   top: 0;
 }
 
-.products-list {
+.products-list,
+.order-list {
   table, th, td {
     border: 1px solid;
     padding: 10px;
@@ -196,6 +197,10 @@ nav {
   table {
     width: 100%;
     border-collapse: collapse;
+  }
+
+  tbody {
+    border: 2px solid #777;
   }
 
   button {
@@ -212,6 +217,11 @@ nav {
     width: 100%;
     object-fit: cover;
   }
+}
+
+.order-number {
+  background: #E1E3E5;
+  font-weight: bold;
 }
 
 .session-message {
