@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CatalogueController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
@@ -22,6 +23,7 @@ use App\Http\Controllers\CategoryController;
 
 Route::get('/', [CatalogueController::class, 'homepage']);
 Route::get('/catalogue/product/{id}', [CatalogueController::class, 'showProduct'])->where(['id' => '[0-9]+']);
+Route::get('/cart', [CartController::class, 'index']);
 
 Route::get('/category/delete/{id}', [CategoryController::class, 'delete'])->where(['id' => '[0-9]+']);
 
