@@ -14,7 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 </head>
-{{-- <x-navigation></x-navigation> --}}
+<x-navigation></x-navigation>
 
 <div class="content">
     <div class="cart">
@@ -30,13 +30,11 @@
             </div>
             @php
                 $subtotal = 0;
-                $button_index = 0;
             @endphp
 
             @foreach (session('cart') as $id => $details)
                 @php
                     $subtotal += $details['price'] * $details['quantity'];
-                    $button_index++;
                 @endphp
                 <div class="cart__item" data-id="{{ $id }}">
                     <img src="{{ asset('img/temp-card-img.png') }}" alt="">
@@ -93,7 +91,7 @@
         </div>
     </div>
 </div>
-{{-- <x-footer></x-footer> --}}
+<x-footer></x-footer>
 <script src="{{ asset('js/script.js') }}"></script>
 <script src="{{ asset('js/cart.js') }}"></script>
 </body>

@@ -169,7 +169,8 @@
             width: 100%;
         }
         &__buttons{
-            padding-right: 200px;
+            position: absolute;
+            right: 250px;
             height: fit-content;
         }
         &__checkout{

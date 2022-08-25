@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
 {
@@ -17,25 +18,33 @@ class CartController extends Controller
         return view('cart')->with('products', $products);
     }
 
-    public function addToCart($id)
+    public function addToCart(Request $request)
     {
+        $request->validate([
+            'id' => 'required',
+            'quantity' => 'required|min:1',
+        ]);
+        $id = $request->input('id');
+        $quantity = $request->input('quantity');
         $product = Product::find($id);
         if (!$product) {
             abort(404);
         }
         $cart = session()->get('cart');
         if (isset($cart[$id])) {
-            $cart[$id]['quantity']++;
+            $cart[$id]['quantity']+=$quantity;
         } else {
             $cart[$id] = [
                 "title" => $product->title,
-                "quantity" => 1,
+                "quantity" => $quantity,
                 "price" => $product->price,
                 "image" => $product->imagePath,
                 "count_in_stock" => $product->count_in_stock,
             ];
         }
         session()->put('cart', $cart);
+
+        Session::flash('message', "Item added to your cart!");
         return redirect()->back();
     }
     public function update(Request $request)

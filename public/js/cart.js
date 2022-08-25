@@ -23,8 +23,8 @@ for (index = 0; index < abbrs.length; ++index) {
         event.preventDefault();
         var quantityNumber = this.parentElement.querySelector(".cart-quantity");
         currentValue = parseInt(quantityNumber.value);
-        if (currentValue < quantityNumber.max) {
-            currentValue += 1;
+        if (currentValue > quantityNumber.min) {
+            currentValue -= 1;
             quantityNumber.value = currentValue;
             sendDataToDb(quantityNumber);
         }
