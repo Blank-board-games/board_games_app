@@ -9,6 +9,10 @@
 
         img {
             width: 100%;
+            height: auto;
+            max-height: 500px;
+            aspect-ratio: 1; 
+            object-fit: cover; 
         }
     }
     &__information {
@@ -128,13 +132,18 @@
 
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 900px) {
     .product {
         padding-top: 64px;
         flex-direction: row;
         justify-content: space-between;
         &__information{
             max-width: 40vw;
+        }
+        img{ 
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
         }
     }
     .benefits {
@@ -155,5 +164,12 @@
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 40px;
+    }
+    .product{ 
+        img{ 
+            width: 530px;
+            height: 530px;
+            object-fit: cover;
+        }
     }
 }
