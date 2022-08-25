@@ -21,7 +21,7 @@
         <nav class="navigation__menu">
           <ul>
             <li class="menu-item group">
-              <a href="#">Board games 
+              <a href="#">Board games
                 <span class="submenu__arrow">
                   <svg width="10" height="6" viewBox="0 0 10 6">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0.639893 1.17711L1.347 0.470001L4.99345 4.11645L8.63989 0.470001L9.347 1.17711L4.99345 5.53066L0.639893 1.17711Z" fill="black"/>
@@ -69,6 +69,23 @@
             </svg>
             <span class="cart-item-count">{{$cart_count}}</span>
           </a>
+        </div>
+      </div>
+      <div class="navigation__search">
+        <form action="{{ action([App\Http\Controllers\CatalogueController::class, 'showSearch'])}}" method='get'>
+          <div class="navigation__search_container" onclick="event.stopPropagation()">
+            <input type="text" name="search" id="search" placeholder="Search">
+              <button class="search-icon" type="submit">
+                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0108 12.7179C10.7372 13.8278 9.07208 14.5 7.25 14.5C3.24594 14.5 0 11.2541 0 7.25C0 3.24594 3.24594 0 7.25 0C11.2541 0 14.5 3.24594 14.5 7.25C14.5 9.07208 13.8278 10.7372 12.7179 12.0108L18.8536 18.1464L18.1464 18.8536L12.0108 12.7179ZM13.5 7.25C13.5 10.7018 10.7018 13.5 7.25 13.5C3.79822 13.5 1 10.7018 1 7.25C1 3.79822 3.79822 1 7.25 1C10.7018 1 13.5 3.79822 13.5 7.25Z"/>
+                </svg>
+              </button>
+          </div>
+        </form>
+        <div class="return-icon">
+          <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9.56066 8.35355L17.2071 0.707107L16.5 0L8.85355 7.64645L1.20711 0L0.5 0.707107L8.14645 8.35355L0.5 16L1.20711 16.7071L8.85355 9.06066L16.5 16.7071L17.2071 16L9.56066 8.35355Z" fill="black"/>
+          </svg>
         </div>
       </div>
     </div>

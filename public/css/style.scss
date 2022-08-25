@@ -44,6 +44,7 @@ header {
   border-top: 1px solid #e1e3e5;
   border-bottom: 1px solid #e1e3e5;
   box-sizing: border-box;
+  position: relative;
 
   .content {
     display: flex;
@@ -91,6 +92,9 @@ header {
 
   &__options {
     display: flex;
+    .search{
+      cursor: pointer;
+    }
 
     .account {
       display: none;
@@ -102,6 +106,67 @@ header {
 
     div {
       padding: 10px;
+    }
+  }
+  //search bar
+  &__search {
+    display: none;
+    &--active {
+      box-sizing: border-box;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      width: 100vw;
+      top: 0;
+      left: 0;
+      background-color: #fff;
+      justify-content: center;
+      z-index: 1;
+    }
+    &_container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin-right: 23px;
+
+      input {
+        box-sizing: border-box;
+        width: 281px;
+        height: 40px;
+        border: none;
+        background-color: transparent;
+        padding: 16px;
+        border: 1px solid #7D7D7D;
+        max-width: 460px;
+        letter-spacing: 0.04em;
+        &::placeholder {
+          font-size: 15px;
+          color: rgba(18, 18, 18, 0.75);
+        }
+        &:focus {
+          border: none;
+          outline: 1px solid #7D7D7D;
+
+          + .search-icon svg {
+            fill: #4d4d50;
+          }
+        }
+      }
+      .search-icon {
+        position: absolute;
+        right: 12px;
+        background: transparent;
+        outline: none;
+        border: none;
+        cursor: pointer;
+      }
+      svg {
+        fill: #66676B;
+      }
+    }
+    .return-icon{
+      cursor: pointer;
     }
   }
 }
@@ -199,7 +264,7 @@ header {
     font-size: 16px;
     letter-spacing: 0.04em;
   }
-  &:hover{ 
+  &:hover{
     cursor: pointer;
   }
 }
