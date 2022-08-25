@@ -23,8 +23,7 @@ use App\Http\Controllers\CategoryController;
 Route::get('/', [CatalogueController::class, 'homepage']);
 Route::get('/catalogue/product/{id}', [CatalogueController::class, 'showProduct'])->where(['id' => '[0-9]+']);
 
-Route::get('/admin', [CategoryController::class, 'index']);
-
+Route::get('/category/delete/{id}', [CategoryController::class, 'delete'])->where(['id' => '[0-9]+']);
 
 Route::get('/full', function () {
     return view('collection/collectionfull');
@@ -45,3 +44,7 @@ Route::get('/catalogue/filtersfull', function () {
 Route::get('/about', function () {
     return view('about/about');
 });
+
+Route::get('/dashboard', [CategoryController::class, 'index'])->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';

@@ -1,20 +1,20 @@
 <form id="add-product-form" action="api/product/add" method="post" enctype="multipart/form-data">
   <label for="title">Title</label><br>
-  <input type="text" name="title" id="title"><br>
+  <input type="text" name="title" id="title" required><br>
 
   <label for="description">Description</label><br>
   <textarea name="description" id="description" cols="30" rows="5"></textarea><br>
 
   <label for="count">Count</label><br>
-  <input type="number" name="count" id="count"><br>
+  <input type="number" name="count" id="count" required><br>
 
   <label for="price">Price</label><br>
   <div class="price-container">
     <span>€</span>
-    <input type="number" step="0.01" name="price" id="price"><br>
+    <input type="number" step="0.01" name="price" id="price" required><br>
   </div>
 
-  <label for="age">Age recommendation:</label><br>
+  <label for="age">Age recommendation</label><br>
   <div class="age-container">
     <span>+</span>
     <input type="number" name="age" id="age"><br>

@@ -18,7 +18,16 @@ class CategoryController extends BaseController
   public function index()
   {
     $categories =  Category::all();
-    return view('admin')->with('categories', $categories);
+    return view('dashboard')->with('categories', $categories);
+  }
+
+  public function delete($id) {
+    $category = Category::where('id', $id)->first();
+    $category->delete();
+
+    $status = 'Category added succesfully';
+    return redirect('/dashboard')->with('status', $status);
+
   }
 
   public function add()
@@ -32,7 +41,7 @@ class CategoryController extends BaseController
 
     if($category) $status = 'Category added succesfully';
 
-    return redirect('/admin')->with('status', $status);
+    return redirect('/dashboard')->with('status', $status);
 
   }
 }
