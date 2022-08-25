@@ -11,8 +11,8 @@
             width: 100%;
             height: auto;
             max-height: 500px;
-            aspect-ratio: 1; 
-            object-fit: cover; 
+            aspect-ratio: 1;
+            object-fit: cover;
         }
     }
     &__information {
@@ -47,7 +47,7 @@
         letter-spacing: 0.04em;
         cursor: pointer;
     }
-    &__add{ 
+    &__add{
         background: #FFF;
     }
     &__buy{
@@ -86,6 +86,16 @@
     input::-webkit-inner-spin-button {
         -webkit-appearance: none;
         margin: 0;
+    }
+    .success{
+        color: rgb(7, 167, 7);
+        font-weight: 600;
+        font-size: 20px;
+    }
+    .sold{
+        color: rgb(160, 17, 17);
+        font-weight: 600;
+        font-size: 20px;
     }
 }
 .benefits{
@@ -140,7 +150,7 @@
         &__information{
             max-width: 40vw;
         }
-        img{ 
+        img{
             width: 400px;
             height: 400px;
             object-fit: cover;
@@ -160,13 +170,13 @@
     }
 }
 @media screen and (min-width: 1200px) {
-    .content{ 
+    .content{
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 40px;
     }
-    .product{ 
-        img{ 
+    .product{
+        img{
             width: 530px;
             height: 530px;
             object-fit: cover;
