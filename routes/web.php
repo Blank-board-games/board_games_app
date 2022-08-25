@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CatalogueController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 
@@ -29,6 +30,8 @@ Route::put('/cart/update', [CartController::class, 'update']);
 Route::delete('/cart/remove', [CartController::class, 'remove']);
 
 Route::get('/category/delete/{id}', [CategoryController::class, 'delete'])->where(['id' => '[0-9]+']);
+Route::get('/product/delete/{id}', [ProductController::class, 'delete'])->where(['id' => '[0-9]+']);
+
 
 Route::get('/full', function () {
     return view('collection/collectionfull');

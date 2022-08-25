@@ -187,6 +187,39 @@ nav {
   top: 0;
 }
 
+.products-list {
+  table, th, td {
+    border: 1px solid;
+    padding: 10px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  button {
+    width: 100%;
+    border-radius: 10px;
+
+    &:hover {
+      background: #ddd;
+    }
+  }
+
+  img {
+    height: 100px;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.session-message {
+  margin: 20px;
+}
+
+
+
 @media screen and (max-width: 900px) {
   .content {
     margin: 0;

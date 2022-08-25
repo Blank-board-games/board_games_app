@@ -7,8 +7,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Models\Product;
 
 class CategoryController extends BaseController
@@ -18,15 +17,18 @@ class CategoryController extends BaseController
   public function index()
   {
     $categories =  Category::all();
-    return view('dashboard')->with('categories', $categories);
+    $products =  Product::all();
+    return view('dashboard')
+    ->with('categories', $categories)
+    ->with('products', $products);
   }
 
   public function delete($id) {
     $category = Category::where('id', $id)->first();
     $category->delete();
 
-    $status = 'Category added succesfully';
-    return redirect('/dashboard')->with('status', $status);
+    Session::flash('message_cat_del', "Category deleted succesfully!");
+    return redirect()->back();
 
   }
 
@@ -39,9 +41,7 @@ class CategoryController extends BaseController
       'title' => $cat_title
     ]);
 
-    if($category) $status = 'Category added succesfully';
-
-    return redirect('/dashboard')->with('status', $status);
-
+    Session::flash('message_cat_add', "Category added succesfully!");
+    return redirect()->back();
   }
 }

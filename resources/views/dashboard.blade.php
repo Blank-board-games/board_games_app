@@ -20,16 +20,23 @@
           <button class="sidebar__tablinks active" data-target="add-product">Add product</button>
           <button class="sidebar__tablinks" data-target="add-category">Add category</button>
           <button class="sidebar__tablinks" data-target="view-products">View products</button>
+          <button class="sidebar__tablinks" data-target="view-orders">View orders</button>
         </div>
     
         <main class="main">
           <div id="add-product" class="tabcontent">
             <h3>Add new product</h3>
+            @if (Session::has('message_prod_add'))
+              <div class="session-message">{{ Session::get('message_prod_add') }}</div>
+            @endif
             <x-product-add-form :categories="$categories"></x-product-add-form>
           </div>
 
           <div id="add-category" class="tabcontent">
             <h3>Add new category</h3>
+            @if (Session::has('message_cat_add'))
+              <div class="session-message">{{ Session::get('message_cat_add') }}</div>
+            @endif
             <x-category-add-form></x-category-add-form>
             <div class="category-list">
               <h4>Category list</h4>
@@ -40,15 +47,63 @@
                 </div>
               @endforeach
             </div>
-            @if(isset($status))
-              <p>{{$status}}</p>
+            @if (Session::has('message_cat_del'))
+              <div class="session-message">{{ Session::get('message_cat_del') }}</div>
             @endif
           </div>
 
           <div id="view-products" class="tabcontent">
             <h3>View all products</h3>
-            <p>Tokyo is the capital of Japan.</p>
+            @if (Session::has('message_prod_del'))
+              <div class="session-message">{{ Session::get('message_prod_del') }}</div>
+            @endif
+            <div class="products-list">
+              <table>
+                <tr>
+                  <th>Image</th>
+                  <th>Title</th>
+                  <th>Age recommendation</th>
+                  <th>Price</th>
+                  <th>Count</th>
+                  <th></th>
+                </tr>
+                @foreach($products as $product)
+                <?php
+                  $filepath_list = explode(',', $product->image_path);
+                ?>
+                  <tr class="product-item">
+                    <td>
+                      <img src="{{asset('storage/' . $filepath_list[0])}}" alt="" srcset="">
+                    </td>
+                    <td>{{$product->title}}</td>
+                    <td>{{$product->age_recom}}</td>
+                    <td>{{$product->price}}</td>
+                    <td>{{$product->count_in_stock}}</td>
+                    <td><a href="/product/delete/{{$product->id}}" onclick="return confirm('Are you sure?')">
+                      <button>Delete</button>
+                    </a></td>
+                  </tr>
+                @endforeach
+              </table>
+            </div>
           </div>
+          <div id="view-orders" class="tabcontent">
+            <h3>View all orders</h3>
+            <div class="order-list">
+              <table>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Customer name</th>
+                  <th>Customer email</th>
+                  <th>Total SUM</th>
+                </tr>
+                  <tr class="order-item">
+                  </tr>
+              </table>
+            </div>
+
+          </div>
+
         </main>
     </div>
 </x-app-layout>

@@ -7,7 +7,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Models\Product;
 
 class ProductController extends BaseController
@@ -19,6 +19,16 @@ class ProductController extends BaseController
     return response()->json([
       "status" => true
     ], 200);
+  }
+
+  public function delete($id) {
+    $product = Product::where('id', $id)->first();
+    $product->delete();
+
+    Storage::disk('public')->deleteDirectory("$id");
+
+    Session::flash('message_prod_del', "Product deleted succesfully!");
+    return redirect()->back();
   }
 
   public function add()
@@ -43,7 +53,7 @@ class ProductController extends BaseController
     $prod_descr = $_POST['description'];
     $prod_count = $_POST['count'];
     $prod_price = $_POST['price'];
-    $prod_age = "+" . $_POST['age'];
+    $prod_age = $_POST['age'] . "+";
     $prod_category = $_POST['category'];
 
     $product = Product::create([
@@ -67,9 +77,16 @@ class ProductController extends BaseController
     foreach ($images as $image) {
       $target_file = $target_dir . basename($image['name']);
       $image_file_type = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-      if ($image_file_type != "jpg" && $image_file_type != "png" && $image_file_type != "jpeg")
+      if ($image_file_type != "jpg" && $image_file_type != "png" && $image_file_type != "jpeg") {
+        $product->delete();
+        Storage::disk('public')->deleteDirectory("$product->id");
         return "Only jpg, jpeg, png file types allowed";
-      if ($image['size'] > 1000000) return "File is too large";
+      }
+      if ($image['size'] > 1000000) {
+        $product->delete();
+        Storage::disk('public')->deleteDirectory("$product->id");
+        return "File is too large";
+      }
 
       $size = getimagesize($image["tmp_name"]);
       if ($size) {
@@ -84,14 +101,7 @@ class ProductController extends BaseController
     Product::where('id', $product->id)
       ->update(['image_path' => $filepath_list]);
 
-    $output = [
-      "status" => true,
-      "data" => $_POST,  //atgriež failu nosaukumus
-      "files" => $images,  //atgriež failus
-      "title" => $prod_title
-    ];
-
-    return redirect('/dashboard')->with('status', $output);
-        // return response()->json($output, 200);
+    Session::flash('message_prod_add', "Product added succesfully!");
+    return redirect()->back();
   }
 }
