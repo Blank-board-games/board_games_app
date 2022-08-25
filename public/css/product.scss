@@ -35,12 +35,16 @@
             font-size: 13px;
         }
     }
-    &__btn{
+    &__btn, button{
         padding: 16px;
+        width: 100%;
         border: 1px solid #000;
         text-align: center;
         letter-spacing: 0.04em;
         cursor: pointer;
+    }
+    &__add{ 
+        background: #FFF;
     }
     &__buy{
         background: #000;
