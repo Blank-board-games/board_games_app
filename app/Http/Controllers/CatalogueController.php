@@ -63,17 +63,15 @@ class CatalogueController extends Controller
     }
 
     public function showSearch(Request $request){
-        if($request->input('search')){ 
-            $products = json_decode($this->search($request)); 
+        if($request->input('search')){
+            $phrase = $request->input('search');
+            $products =  Product::join('categories', 'categories.id', '=', 'products.category_id')
+            ->select('products.*')
+            ->where('products.title', 'LIKE', '%' . $phrase . '%')
+            ->orWhere('categories.title', 'LIKE', '%' . $phrase . '%')
+            ->get();
             return view('search')->with('products', $products);
-        } 
+        }
         return view('search');
-        
-    }
-
-    public function search(Request $request){
-        $products =  Product::where('title', 'LIKE', '%' . $request->get('search') . '%')
-        ->get();
-        return json_encode($products);
     }
 }

@@ -92,7 +92,7 @@ header {
 
   &__options {
     display: flex;
-    .search{ 
+    .search{
       cursor: pointer;
     }
 
@@ -129,7 +129,7 @@ header {
       display: flex;
       align-items: center;
       margin-right: 23px;
-  
+
       input {
         box-sizing: border-box;
         width: 281px;
@@ -147,7 +147,7 @@ header {
         &:focus {
           border: none;
           outline: 1px solid #7D7D7D;
-  
+
           + .search-icon svg {
             fill: #4d4d50;
           }
@@ -156,12 +156,16 @@ header {
       .search-icon {
         position: absolute;
         right: 12px;
+        background: transparent;
+        outline: none;
+        border: none;
+        cursor: pointer;
       }
       svg {
         fill: #66676B;
       }
     }
-    .return-icon{ 
+    .return-icon{
       cursor: pointer;
     }
   }
@@ -260,7 +264,7 @@ header {
     font-size: 16px;
     letter-spacing: 0.04em;
   }
-  &:hover{ 
+  &:hover{
     cursor: pointer;
   }
 }

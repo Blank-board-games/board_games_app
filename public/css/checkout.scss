@@ -1,15 +1,15 @@
-.checkout{ 
+.checkout{
     padding-top: 40px;
     max-width: 500px;
     margin: 0 auto;
-    &__messages{ 
+    &__messages{
         a{
             font-weight: 400;
             color: #121212;
             text-decoration: underline;
             letter-spacing: 0.04em;
         }
-        .message{ 
+        .message{
         font-weight: 400;
         font-size: 20px;
         letter-spacing: 0.03em;
@@ -22,7 +22,7 @@
         font-size: 40px;
         color: #121212;
     }
-    input{ 
+    input{
         box-sizing: border-box;
         border: 1px solid #7D7D7D;
         width: 100%;
@@ -32,8 +32,8 @@
         letter-spacing: 0.04em;
         font-weight: 500;
 
-        color: rgba(18, 18, 18);
-        &::placeholder{ 
+        color: rgba(18, 18, 18, 1);
+        &::placeholder{
             letter-spacing: 0.04em;
             color: rgba(18, 18, 18, 0.75);
         }
@@ -42,9 +42,9 @@
         display: block;
         font-weight: 400;
         letter-spacing: 0.04em;
-        padding: 16px 0; 
+        padding: 16px 0;
     }
-    &__btn{ 
+    &__btn{
         box-sizing: border-box;
         width: 120px;
         padding: 16px;
