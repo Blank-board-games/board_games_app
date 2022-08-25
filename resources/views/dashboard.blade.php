@@ -102,12 +102,12 @@
                   <th>Total SUM</th>
                 </tr>
                 @foreach($orderIds as $orderId)
+                <?php $total = 0;?>
                 <tbody>
                   <tr class="order-number">
                     <td>{{$orderId->id}}</td>
                     <td>{{$orderId->email}}</td>
-                    <td colspan="3"></td>
-                    <td>Total</td>
+                    <td colspan="4"></td>
                   </tr>
                   @foreach($orders as $order)
                     @if($order->id == $orderId->id)
@@ -118,8 +118,13 @@
                         <td>{{$order->product_price}}</td>
                         <td>{{$order->product_price * $order->quantity}}</td>
                       </tr>
+                      <?php $total += $order->product_price * $order->quantity;?>
                     @endif
                   @endforeach
+                  <tr class="order-total">
+                    <td colspan="5"></td>
+                    <td>{{$total}}</td>
+                  </tr>
                 </tbody>
                 @endforeach
               </table>

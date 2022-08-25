@@ -2,6 +2,7 @@
 
 body {
   margin: 0;
+  position: relative;
 }
 
 * {
@@ -22,15 +23,6 @@ svg {
   margin: 0 36px;
   box-sizing: border-box;
 }
-
-// header {
-//   position: sticky;
-//   top: 0;
-//   height: 53px;
-//   background: #fff;
-//   border: 1px solid #E1E3E5;
-//   z-index: 999;
-// }
 
 .sidebar {
   display: flex;
@@ -69,6 +61,7 @@ svg {
 .main {
   margin: 40px;
   margin-left: 240px;
+  margin-bottom: 0;
   background: #eee;
   padding: 30px;
   border-radius: 10px;
@@ -84,20 +77,6 @@ svg {
     font-weight: bold;
   }
 }
-
-// .left {
-//   display: flex;
-//   align-items: center;
-
-//   &__exit {
-//     padding: 15px;
-//     border-right: 1px solid #E1E3E5;
-//   }
-
-//   &__heading {
-//     padding: 15px;
-//   }
-// }
 
 .tabcontent form {
   input,
@@ -164,7 +143,6 @@ svg {
     button {
       background: #eee;
       z-index: 1;
-    
     }
 
     &:before {
@@ -178,8 +156,6 @@ svg {
     }
   }
 }
-
-
 
 nav {
   z-index: 999;
@@ -224,11 +200,13 @@ nav {
   font-weight: bold;
 }
 
+.order-total {
+  font-weight: bold;
+}
+
 .session-message {
   margin: 20px;
 }
-
-
 
 @media screen and (max-width: 900px) {
   .content {
