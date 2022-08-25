@@ -41,8 +41,8 @@ class CategoryController extends BaseController
     $category->delete();
 
     Session::flash('message_cat_del', "Category deleted succesfully!");
+    Session::flash('source', "add-category");
     return redirect()->back();
-
   }
 
   public function add()
@@ -55,6 +55,7 @@ class CategoryController extends BaseController
     ]);
 
     Session::flash('message_cat_add', "Category added succesfully!");
+    Session::flash('source', "add-category");
     return redirect()->back();
   }
 }

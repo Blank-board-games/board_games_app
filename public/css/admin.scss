@@ -38,7 +38,8 @@ svg {
   &__tablinks {
     font-size: 16px;
     font-weight: bold;
-    height: 40px;
+    padding: 10px;
+    // height: 40px;
     background: none;
     border: none;
     border-bottom: 1px solid #E1E3E5;
@@ -66,7 +67,7 @@ svg {
   padding: 30px;
   border-radius: 10px;
 
-  .tabcontent:not(:first-child) {
+  .tabcontent {
     display: none;
   }
 
@@ -140,10 +141,18 @@ svg {
     line-height: 30px;
 
     p,
+    a,
     button {
       background: #eee;
       z-index: 1;
+      padding: 0 10px;
     }
+
+    button:hover {
+      border-radius: 10px;
+      background: #ddd;
+    }
+  
 
     &:before {
       content: '';
@@ -165,6 +174,8 @@ nav {
 
 .products-list,
 .order-list {
+  overflow: auto;
+
   table, th, td {
     border: 1px solid;
     padding: 10px;
@@ -205,7 +216,10 @@ nav {
 }
 
 .session-message {
-  margin: 20px;
+  margin: 20px 0;
+  padding: 0 20px;
+  font-weight: bold;
+  border-left: 5px solid #40ab40;
 }
 
 @media screen and (max-width: 900px) {

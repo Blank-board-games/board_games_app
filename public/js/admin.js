@@ -1,5 +1,20 @@
-sideBtns = document.querySelectorAll('.sidebar__tablinks');
-tabContent = document.querySelectorAll('.tabcontent');
+let redirect = document.getElementById('redirect');
+let sideBtns = document.querySelectorAll('.sidebar__tablinks');
+let tabContent = document.querySelectorAll('.tabcontent');
+let activeTab;
+let activeBlock;
+
+if(redirect) {
+  let source = redirect.dataset.source;
+  activeTab = document.querySelector('.sidebar__tablinks[data-target="' + source + '"]');
+  activeBlock = document.getElementById(source)
+} else {
+  activeTab = document.querySelector('.sidebar__tablinks:first-child');
+  activeBlock = document.querySelector('.tabcontent:first-child');
+}
+
+activeTab.classList.add("active");
+activeBlock.style.display = "block";
 
 sideBtns.forEach(function(tab) {
   tab.onclick = function(e) {

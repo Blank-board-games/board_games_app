@@ -28,6 +28,7 @@ class ProductController extends BaseController
     Storage::disk('public')->deleteDirectory("$id");
 
     Session::flash('message_prod_del', "Product deleted succesfully!");
+    Session::flash('source', "view-products");
     return redirect()->back();
   }
 
@@ -102,6 +103,7 @@ class ProductController extends BaseController
       ->update(['image_path' => $filepath_list]);
 
     Session::flash('message_prod_add', "Product added succesfully!");
+    Session::flash('source', "add-product");
     return redirect()->back();
   }
 }
