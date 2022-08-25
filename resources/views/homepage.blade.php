@@ -16,7 +16,7 @@
             <div class="intro__content">
                 <h1>Industrial design meets fashion</h1>
                 <p>Atypical leather goods</p>
-                <a href="#">Go to catalog</a>
+                <a href="/catalogue">Go to catalogue</a>
             </div>
         </div>
         <div class="content">
