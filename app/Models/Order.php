@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+    protected $fillable = ['email'];
     public function products()
     {
         return $this->belongsToMany(Product::class);
