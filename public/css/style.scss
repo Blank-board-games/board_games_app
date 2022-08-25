@@ -96,10 +96,6 @@ header {
       cursor: pointer;
     }
 
-    .account {
-      display: none;
-    }
-
     .cart {
       position: relative;
     }
@@ -198,7 +194,7 @@ header {
 
   ~ .left .navigation__menu {
     position: absolute;
-    top: calc(60px + 37px);
+    top: 59px;
     left: 0;
     display: block;
     width: 100vw;
@@ -292,12 +288,6 @@ header {
 
       ul {
         flex-direction: row;
-      }
-    }
-
-    &__options {
-      .account {
-        display: block;
       }
     }
   }
