@@ -17,9 +17,15 @@
         <div class="product">
             <div class="product__images">
                 {{-- TODO: fix image path --}}
-                <img src="{{ asset('img/temp-card-img.png') }}" alt="">
+                @php 
+                    $filepath_list = explode(',', $product->image_path);
+                @endphp
+                <img src="{{asset("storage/".$filepath_list[0])}}" alt="">
             </div>
             <div class="product__information">
+                @if (Session::has('message'))
+                    <div class="">{{ Session::get('message') }}</div>
+                @endif
                 <h2>{{ $product->title }}</h2>
                 @if (isset($product->new_price))
                     <p class="product__old_price">&euro; {{ $product->price }}</p>
@@ -39,9 +45,6 @@
                         </div>
                     </div>
                     <input type="text" name="id" value="{{$product->id}}" hidden>
-                    @if (Session::has('message'))
-                        <div class="">{{ Session::get('message') }}</div>
-                    @endif
                     <button class="product__btn product__add" type="submit">Add to cart</button>
                 </form>
 
@@ -73,7 +76,7 @@
             </div>
         </div>
     </div>
-    <x-footer></x-footer>
+    {{-- <x-footer></x-footer> --}}
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{ asset('js/product.js') }}"></script>
 </body>

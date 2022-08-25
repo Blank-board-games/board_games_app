@@ -22,7 +22,7 @@ class ProductTableSeeder extends Seeder
             'count_in_stock' => '10', 
             'price' => '5.99', 
             'age_recom' => '3+', 
-            'image_path' => 'temp-card-img.jpg',
+            'image_path' => '1/temp-card-img.png,1/temp-card-img.png,1/temp-card-img.png',
             'category_id' => 2, 
         ));
         Product::create(array(
@@ -31,7 +31,7 @@ class ProductTableSeeder extends Seeder
             'count_in_stock' => '15', 
             'price' => '11.99', 
             'age_recom' => '5+', 
-            'image_path' => 'temp-card-img.jpg',
+            'image_path' => '1/temp-card-img.png,1/temp-card-img.png,1/temp-card-img.png',
             'category_id' => 3, 
         ));
         Product::create(array(
@@ -41,7 +41,7 @@ class ProductTableSeeder extends Seeder
             'price' => '44.99', 
             'new_price' => '49.99', 
             'age_recom' => '7+', 
-            'image_path' => 'temp-card-img.jpg',
+            'image_path' => '1/temp-card-img.png,1/temp-card-img.png,1/temp-card-img.png',
             'category_id' => 1, 
         ));
         Product::create(array(
@@ -50,7 +50,7 @@ class ProductTableSeeder extends Seeder
             'count_in_stock' => '56', 
             'price' => '15.99', 
             'age_recom' => '7+', 
-            'image_path' => 'temp-card-img.jpg',
+            'image_path' => '1/temp-card-img.png,1/temp-card-img.png,1/temp-card-img.png',
             'category_id' => 4, 
         ));
         Product::create(array(
@@ -59,7 +59,7 @@ class ProductTableSeeder extends Seeder
             'count_in_stock' => '43', 
             'price' => '34.99', 
             'age_recom' => '5+', 
-            'image_path' => 'temp-card-img.jpg',
+            'image_path' => '1/temp-card-img.png,1/temp-card-img.png,1/temp-card-img.png',
             'category_id' => 5, 
         ));
         Product::create(array(
@@ -68,7 +68,7 @@ class ProductTableSeeder extends Seeder
             'count_in_stock' => '0', 
             'price' => '24.99', 
             'age_recom' => '6+', 
-            'image_path' => 'temp-card-img.jpg',
+            'image_path' => '1/temp-card-img.png,1/temp-card-img.png,1/temp-card-img.png',
             'category_id' => 1, 
         ));
         Product::create(array(
@@ -77,7 +77,7 @@ class ProductTableSeeder extends Seeder
             'count_in_stock' => '10', 
             'price' => '26.99', 
             'age_recom' => '6+', 
-            'image_path' => 'temp-card-img.jpg',
+            'image_path' => '1/temp-card-img.png,1/temp-card-img.png,1/temp-card-img.png',
             'category_id' => 1, 
         ));
         Product::create(array(
@@ -86,7 +86,7 @@ class ProductTableSeeder extends Seeder
             'count_in_stock' => '10', 
             'price' => '36.99', 
             'age_recom' => '7+', 
-            'image_path' => 'temp-card-img.jpg',
+            'image_path' => '1/temp-card-img.png,1/temp-card-img.png,1/temp-card-img.png',
             'category_id' => 4, 
         ));
         Product::create(array(
@@ -96,7 +96,7 @@ class ProductTableSeeder extends Seeder
             'new_price' => '7.99',
             'price' => '9.99', 
             'age_recom' => '7+', 
-            'image_path' => 'temp-card-img.jpg',
+            'image_path' => '1/temp-card-img.png,1/temp-card-img.png,1/temp-card-img.png',
             'category_id' => 1, 
         ));
     }
