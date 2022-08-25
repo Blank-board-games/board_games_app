@@ -76,7 +76,7 @@
             <div class="cart__checkout">
                 <h2>Subtotal <span class="cart__subtotal">&euro;{{ $subtotal }}</span></h2>
                 <p>Taxes and shipping calculated at checkout</p>
-                <button>Checkout</button>
+                <a href="{{ action([App\Http\Controllers\CartController::class, 'checkoutIndex'])}}">Checkout</a>
             </div>
     </div>
 @else

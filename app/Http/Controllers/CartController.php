@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
@@ -16,6 +18,20 @@ class CartController extends Controller
             ->get();
 
         return view('cart')->with('products', $products);
+    }
+    public function checkoutIndex()
+    {
+        $cart = session()->get('cart');
+        $total = 0.00; 
+        if($cart){ 
+            foreach ($cart as $key => $value) {
+                $total += $value['price']*$value['quantity'];
+            }
+        }
+        else{ 
+            Session::flash('error', "Your cart is empty!");
+        }
+        return view('checkout')->with('total', $total);
     }
 
     public function addToCart(Request $request)
@@ -67,5 +83,36 @@ class CartController extends Controller
             }
             return redirect()->back();
         }
+    }
+
+    public function checkout(Request $request)
+    {
+        $request->validate([
+            'email' => 'required',
+        ]);
+        $cart = session()->get('cart');
+        if(!$cart){ 
+            Session::flash('message', "Failed: there is nothing in your cart! :( ");
+            return redirect()->back();
+        }
+        $order = Order::create([
+            'email' => $request->input('email'),
+        ]);
+
+        foreach ($cart as $key => $value) {
+            $item = DB::table('order_product')->insert([
+                'order_id' => $order->id, 
+                'product_id' => $key,
+                'product_price' => $value['price'], 
+                'quantity' => $value['quantity']
+            ]);
+            if(!isset($item)){ 
+                Session::flash('message', "Failed! :( ");
+                return redirect()->back();
+            }
+        }
+        $request->session()->forget('cart');
+        Session::flash('message', "Success! :) ");
+        return redirect()->back();
     }
 }
