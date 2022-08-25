@@ -4,25 +4,18 @@
             {{ __('Dash') }}
         </h2>
     </x-slot>
-
-    {{-- <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
-                </div>
-            </div>
-        </div>
-    </div> --}}
-
     <div class="admin content">
         <div class="sidebar">
-          <button class="sidebar__tablinks active" data-target="add-product">Add product</button>
+
+          @if (Session::has('source'))
+            <div id="redirect" data-source="{{Session::get('source')}}"></div>
+          @endif
+          
+          <button class="sidebar__tablinks" data-target="add-product">Add product</button>
           <button class="sidebar__tablinks" data-target="add-category">Add category</button>
           <button class="sidebar__tablinks" data-target="view-products">View products</button>
           <button class="sidebar__tablinks" data-target="view-orders">View orders</button>
         </div>
-    
         <main class="main">
           <div id="add-product" class="tabcontent">
             <h3>Add new product</h3>
@@ -31,11 +24,10 @@
             @endif
             <x-product-add-form :categories="$categories"></x-product-add-form>
           </div>
-
           <div id="add-category" class="tabcontent">
             <h3>Add new category</h3>
-            @if (Session::has('message_cat_add'))
-              <div class="session-message">{{ Session::get('message_cat_add') }}</div>
+            @if (session('message_cat_add'))
+              <div class="session-message">{{ session('message_cat_add') }}</div>
             @endif
             <x-category-add-form></x-category-add-form>
             <div class="category-list">
@@ -129,9 +121,7 @@
                 @endforeach
               </table>
             </div>
-
           </div>
-
         </main>
     </div>
 </x-app-layout>
