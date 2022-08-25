@@ -32,6 +32,10 @@ Route::delete('/cart/remove', [CartController::class, 'remove']);
 Route::get('/checkout', [CartController::class, 'checkoutIndex']);
 Route::post('/checkout', [CartController::class, 'checkout']);
 
+Route::get('/contact', function(){
+    return view('contact');
+});
+
 Route::get('/category/delete/{id}', [CategoryController::class, 'delete'])->where(['id' => '[0-9]+']);
 Route::get('/product/delete/{id}', [ProductController::class, 'delete'])->where(['id' => '[0-9]+']);
 Route::post('/product/add', [ProductController::class, 'add']);
