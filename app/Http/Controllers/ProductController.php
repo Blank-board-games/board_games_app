@@ -91,7 +91,7 @@ class ProductController extends BaseController
       "title" => $prod_title
     ];
 
-    return redirect('/test')->with('status', $output);
+    return redirect('/dashboard')->with('status', $output);
         // return response()->json($output, 200);
   }
 }
