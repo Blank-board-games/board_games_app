@@ -21,18 +21,18 @@
                         <div class="message">{{ Session::get('error') }}</div>
                         <a href="/catalogue">Continue shopping</a>
                     @else
+                        </div>
+                        <h1>Checkout</h1>
+                        <form action="{{action( [App\Http\Controllers\CartController::class, 'checkout'])}}" method="post">
+                            @csrf
+                            @method('post')
+                            <input type="email" name="email" placeholder="Email" required>
+                            <p class="checkout__total">Total price: &euro;{{$total}}</p>
+                            <button class="checkout__btn" type="sumbit">Checkout</button>
+                        </form>
+                    @endif
                 </div>
-                <h1>Checkout</h1>
-                <form action="{{action( [App\Http\Controllers\CartController::class, 'checkout'])}}" method="post">
-                    @csrf
-                    @method('post')
-                    <input type="email" name="email" placeholder="Email">
-                    <p class="checkout__total">Total price: &euro;{{$total}}</p>
-                    <button class="checkout__btn" type="sumbit">Checkout</button>
-                </form>
-                @endif
             </div>
-            
         </div>
         <x-footer></x-footer>
     <script src="{{asset('js/script.js')}}"></script>

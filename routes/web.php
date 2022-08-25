@@ -5,7 +5,7 @@ use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
-
+use App\Http\Controllers\SubscriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +37,8 @@ Route::get('/product/delete/{id}', [ProductController::class, 'delete'])->where(
 Route::post('/product/add', [ProductController::class, 'add']);
 Route::post('/category/add', [CategoryController::class, 'add']);
 
+Route::post('/subscription/add', [SubscriptionController::class, 'add']);
+Route::get('/subscription/delete/{id}', [SubscriptionController::class, 'delete'])->where(['id' => '[0-9]+']);
 
 Route::get('/full', function () {
     return view('collection/collectionfull');

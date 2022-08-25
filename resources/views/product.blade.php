@@ -76,7 +76,7 @@
             </div>
         </div>
     </div>
-    {{-- <x-footer></x-footer> --}}
+    <x-footer></x-footer>
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{ asset('js/product.js') }}"></script>
 </body>
