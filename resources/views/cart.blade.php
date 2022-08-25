@@ -37,7 +37,10 @@
                     $subtotal += $details['price'] * $details['quantity'];
                 @endphp
                 <div class="cart__item" data-id="{{ $id }}">
-                    <img src="{{ asset('img/temp-card-img.png') }}" alt="">
+                    @php 
+                    $filepath_list = explode(',', $details['images']);
+                @endphp
+                    <img src="{{asset("storage/".$filepath_list[0])}}" alt="">
                     <div class="cart__info">
                         <h2>{{ $details['title'] }}</h2>
                         <div class="cart__buttons">

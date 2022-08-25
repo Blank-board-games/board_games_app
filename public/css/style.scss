@@ -165,8 +165,11 @@ header {
 
   &__image {
     position: relative;
+
     img {
-      width: 100%;
+      width: 170px;
+      height: 170px;
+      object-fit: cover;
     }
   }
   &__sale {
@@ -257,6 +260,11 @@ header {
       display: flex;
       align-items: center;
       gap: 10px;
+    }
+    img {
+      width: 260px;
+      height: 260px;
+      object-fit: cover;
     }
   }
 }

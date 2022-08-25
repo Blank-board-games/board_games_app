@@ -42,7 +42,8 @@
         display: flex;
         img{
             width: 74px;
-            max-height: 74px;
+            height: 74px;
+            object-fit: cover; 
             padding-right: 20.5px;
         }
     }
@@ -152,7 +153,8 @@
         &__item{
             img{
                 width: 100px;
-                max-height: 100px;
+                height: 100px;
+                object-fit: cover; 
             }
         }
         &__titles{

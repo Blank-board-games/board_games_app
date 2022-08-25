@@ -1,8 +1,11 @@
 <div class="item_card">
     <a href="/catalogue/product/{{$product->id}}">
+        @php 
+            $filepath_list = explode(',', $product->image_path);
+        @endphp
         <div class="item_card__image">
             {{-- TODO: fix image path --}}
-            <img src="{{asset('img/temp-card-img.png')}}" alt="">
+            <img src="{{asset("storage/".$filepath_list[0])}}" alt="">
             @if(isset($product->new_price))
                 <div class="item_card__sale">Sale</div>
             @endif
