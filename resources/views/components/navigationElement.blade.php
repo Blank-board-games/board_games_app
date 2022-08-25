@@ -61,6 +61,25 @@
           </a>
         </div>
       </div>
+      <div class="navigation__search">
+        <div class="navigation__search_container" onclick="event.stopPropagation()">
+          <form action="{{ action([App\Http\Controllers\CatalogueController::class, 'showSearch'])}}" method='post'>
+            @csrf
+            @method('post')
+            <input type="text" name="search" id="search" placeholder="Search">
+          </form>
+          <div class="search-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M10.1779 2.8233C12.2088 4.85421 12.2088 8.14696 10.1779 10.1779C8.14696 12.2088 4.85421 12.2088 2.8233 10.1779C0.79239 8.14696 0.79239 4.85421 2.8233 2.8233C4.85421 0.79239 8.14696 0.79239 10.1779 2.8233ZM11.6589 10.4578C13.6195 7.90868 13.4323 4.23907 11.0972 1.90398C8.55856 -0.634659 4.44261 -0.634659 1.90398 1.90398C-0.634659 4.44261 -0.634659 8.55856 1.90398 11.0972C4.23907 13.4323 7.90867 13.6195 10.4578 11.6589L14.1894 15.667C14.5928 16.1002 15.2752 16.1124 15.6938 15.6938C16.1124 15.2752 16.1002 14.5928 15.6669 14.1894L11.6589 10.4578Z" fill="inherit"/>
+              </svg>
+          </div>
+        </div>
+        <div class="return-icon">
+          <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9.56066 8.35355L17.2071 0.707107L16.5 0L8.85355 7.64645L1.20711 0L0.5 0.707107L8.14645 8.35355L0.5 16L1.20711 16.7071L8.85355 9.06066L16.5 16.7071L17.2071 16L9.56066 8.35355Z" fill="black"/>
+          </svg>
+        </div>
+      </div>
     </div>
   </div>
 
