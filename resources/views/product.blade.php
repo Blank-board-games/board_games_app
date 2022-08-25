@@ -27,18 +27,25 @@
                 @else
                     <p class="product__price">&euro; {{ $product->price }}</p>
                 @endif
-
-                <div class="product__quantity">
-                    <p>Quantity</p>
-                    <div class="product__counter">
-                        <div class="product__btn-subtract">-</div>
-                        <input type="number" min="1" max="{{$product->count_in_stock}}" class="product-quantity" value="1">
-                        <div class="product__btn-add">+</div>
+                <form action="{{ action([App\Http\Controllers\CartController::class, 'addToCart']) }}" method="post">
+                    @csrf
+                    @method('POST')
+                    <div class="product__quantity">
+                        <p>Quantity</p>
+                        <div class="product__counter">
+                            <div class="product__btn-subtract">-</div>
+                            <input type="number" name="quantity" min="1" max="{{$product->count_in_stock}}" class="product-quantity" value="1">
+                            <div class="product__btn-add">+</div>
+                        </div>
                     </div>
-                </div>
+                    <input type="text" name="id" value="{{$product->id}}" hidden>
+                    @if (Session::has('message'))
+                        <div class="">{{ Session::get('message') }}</div>
+                    @endif
+                    <button class="product__btn product__add" type="submit">Add to cart</button>
+                </form>
 
-                <div class="product__btn product__add">Add to cart</div>
-                <div class="product__btn product__buy">Buy it now</div>
+                <button class="product__btn product__buy">Buy it now</button>
                 @if (isset($product->description))
                     <p class="product__desc">{{ $product->description }}</p>
                 @endif
