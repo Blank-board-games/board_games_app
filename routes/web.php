@@ -22,7 +22,7 @@ use App\Http\Controllers\SubscriptionController;
 //     return view('homepage');
 // });
 
-Route::get('/', [CatalogueController::class, 'homepage']);
+Route::get('/', [CatalogueController::class, 'homepage'])->name('homepage');
 Route::get('/catalogue/product/{id}', [CatalogueController::class, 'showProduct'])->where(['id' => '[0-9]+']);
 Route::get('/catalogue/search', [CatalogueController::class, 'showSearch']);
 Route::get('/cart', [CartController::class, 'index']);
@@ -36,13 +36,13 @@ Route::get('/contact', function(){
     return view('contact');
 });
 
-Route::get('/category/delete/{id}', [CategoryController::class, 'delete'])->where(['id' => '[0-9]+']);
-Route::get('/product/delete/{id}', [ProductController::class, 'delete'])->where(['id' => '[0-9]+']);
-Route::post('/product/add', [ProductController::class, 'add']);
-Route::post('/category/add', [CategoryController::class, 'add']);
+Route::get('/category/delete/{id}', [CategoryController::class, 'delete'])->where(['id' => '[0-9]+'])->middleware(['role.check']);
+Route::get('/product/delete/{id}', [ProductController::class, 'delete'])->where(['id' => '[0-9]+'])->middleware(['role.check']);
+Route::post('/product/add', [ProductController::class, 'add'])->middleware(['role.check']);
+Route::post('/category/add', [CategoryController::class, 'add'])->middleware(['role.check']);
 
 Route::post('/subscription/add', [SubscriptionController::class, 'add']);
-Route::get('/subscription/delete/{id}', [SubscriptionController::class, 'delete'])->where(['id' => '[0-9]+']);
+Route::get('/subscription/delete/{id}', [SubscriptionController::class, 'delete'])->where(['id' => '[0-9]+'])->middleware(['role.check']);
 
 Route::get('/full', function () {
     return view('collection/collectionfull');
@@ -64,6 +64,6 @@ Route::get('/about', function () {
     return view('about/about');
 });
 
-Route::get('/dashboard', [CategoryController::class, 'index'])->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [CategoryController::class, 'index'])->middleware(['auth'])->middleware(['role.check'])->name('dashboard');
 
 require __DIR__.'/auth.php';
