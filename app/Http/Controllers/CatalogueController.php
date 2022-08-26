@@ -57,9 +57,17 @@ class CatalogueController extends Controller
             }
         }
 
+        $count_in_cart = 0;
+        if(session()->get('cart')){
+            $cart = session()->get('cart');
+            if(isset($cart[$id])){
+                $count_in_cart = $cart[$id]['quantity'];
+            }
+        }
         return view('product')
             ->with('product', $product)
-            ->with('products', $similar_products);
+            ->with('products', $similar_products)
+            ->with('count_in_cart', $count_in_cart);
     }
 
     public function showSearch(Request $request){

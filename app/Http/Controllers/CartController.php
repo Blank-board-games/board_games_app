@@ -22,13 +22,13 @@ class CartController extends Controller
     public function checkoutIndex()
     {
         $cart = session()->get('cart');
-        $total = 0.00; 
-        if($cart){ 
+        $total = 0.00;
+        if($cart){
             foreach ($cart as $key => $value) {
                 $total += $value['price']*$value['quantity'];
             }
         }
-        else{ 
+        else{
             Session::flash('error', "Your cart is empty!");
         }
         return view('checkout')->with('total', $total);
@@ -46,6 +46,10 @@ class CartController extends Controller
         if (!$product) {
             abort(404);
         }
+        $price = $product->price;
+        if (isset($product->new_price)) {
+            $price = $product->new_price;
+        }
         $cart = session()->get('cart');
         if (isset($cart[$id])) {
             $cart[$id]['quantity']+=$quantity;
@@ -53,10 +57,13 @@ class CartController extends Controller
             $cart[$id] = [
                 "title" => $product->title,
                 "quantity" => $quantity,
-                "price" => $product->price,
+                "price" => $price,
                 "images" => $product->image_path,
                 "count_in_stock" => $product->count_in_stock,
             ];
+        }
+        if($cart[$id]['quantity'] > $product->count_in_stock) {
+            $cart[$id]["quantity"] = $product->count_in_stock;
         }
         session()->put('cart', $cart);
 
@@ -91,7 +98,7 @@ class CartController extends Controller
             'email' => 'required',
         ]);
         $cart = session()->get('cart');
-        if(!$cart){ 
+        if(!$cart){
             Session::flash('message', "Failed: there is nothing in your cart! :( ");
             return redirect()->back();
         }
@@ -100,14 +107,24 @@ class CartController extends Controller
         ]);
 
         foreach ($cart as $key => $value) {
+            $product = Product::find($key);
+            if(!$product || ($value['quantity'] > $product->count_in_stock) ){
+                Session::flash('message', "Failed to find such product! :( ");
+                return redirect()->back();
+            }
             $item = DB::table('order_product')->insert([
-                'order_id' => $order->id, 
+                'order_id' => $order->id,
                 'product_id' => $key,
-                'product_price' => $value['price'], 
+                'product_price' => $value['price'],
                 'quantity' => $value['quantity']
             ]);
-            if(!isset($item)){ 
-                Session::flash('message', "Failed! :( ");
+
+            $updated_product = $product->update([
+                'count_in_stock' => ($product->count_in_stock - $value['quantity']),
+            ]);
+            
+            if(!$updated_product || !$item){
+                Session::flash('message', "Failed to give you product! :( ");
                 return redirect()->back();
             }
         }
