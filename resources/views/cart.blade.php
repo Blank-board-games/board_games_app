@@ -16,7 +16,7 @@
 </head>
 <body>
 <x-navigation></x-navigation>
-<div class="content">
+<div class="content wrapper">
     <div class="cart">
         <div class="cart__header">
             <h2>Your cart</h2>
