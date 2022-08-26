@@ -19,7 +19,7 @@
                 <a href="/catalogue">Go to catalogue</a>
             </div>
         </div>
-        <div class="content">
+        <div class="content wrapper">
             <div class="about">
                 <h2>Obsessive Attention. Intelligent Effort.</h2>
                 <p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.</p>
