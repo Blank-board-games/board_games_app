@@ -40,7 +40,9 @@
                     @php 
                         $filepath_list = explode(',', $details['images']);
                     @endphp
-                    <img src="{{asset("storage/".$filepath_list[0])}}" alt="">
+                   <a href="/catalogue/product/{{$id}}">
+                        <img src="{{asset("storage/".$filepath_list[0])}}" alt="">
+                    </a>
                     <div class="cart__info">
                         <h2>{{ $details['title'] }}</h2>
                         <div class="cart__buttons">
