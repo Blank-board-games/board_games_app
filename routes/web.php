@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\ProductController;
@@ -32,7 +33,7 @@ Route::delete('/cart/remove', [CartController::class, 'remove']);
 Route::get('/checkout', [CartController::class, 'checkoutIndex']);
 Route::post('/checkout', [CartController::class, 'checkout']);
 
-Route::get('/contact', function(){
+Route::get('/contact', function () {
     return view('contact');
 });
 
@@ -44,13 +45,10 @@ Route::post('/category/add', [CategoryController::class, 'add'])->middleware(['r
 Route::post('/subscription/add', [SubscriptionController::class, 'add']);
 Route::get('/subscription/delete/{id}', [SubscriptionController::class, 'delete'])->where(['id' => '[0-9]+'])->middleware(['role.check']);
 
-Route::get('/full', function () {
-    return view('collection/collectionfull');
-});
-
-Route::get('/catalogue', function () {
-    return view('collection/collection');
-});
+Route::get('/catalogue', [CatalogueController::class, 'index']);
+// Route::get('/catalogue', function () {
+//     return view('collection/collection');
+// });
 
 Route::get('/catalogue/filters', function () {
     return view('collection/filters');
@@ -66,4 +64,4 @@ Route::get('/about', function () {
 
 Route::get('/dashboard', [CategoryController::class, 'index'])->middleware(['auth'])->middleware(['role.check'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

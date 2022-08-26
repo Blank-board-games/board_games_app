@@ -103,7 +103,7 @@ header {
 
   &__options {
     display: flex;
-    .search{
+    .search {
       cursor: pointer;
     }
 
@@ -144,7 +144,7 @@ header {
         border: none;
         background-color: transparent;
         padding: 16px;
-        border: 1px solid #7D7D7D;
+        border: 1px solid #7d7d7d;
         max-width: 460px;
         letter-spacing: 0.04em;
         &::placeholder {
@@ -153,7 +153,7 @@ header {
         }
         &:focus {
           border: none;
-          outline: 1px solid #7D7D7D;
+          outline: 1px solid #7d7d7d;
 
           + .search-icon svg {
             fill: #4d4d50;
@@ -169,10 +169,10 @@ header {
         cursor: pointer;
       }
       svg {
-        fill: #66676B;
+        fill: #66676b;
       }
     }
-    .return-icon{
+    .return-icon {
       cursor: pointer;
     }
   }
@@ -271,7 +271,8 @@ header {
     font-size: 16px;
     letter-spacing: 0.04em;
   }
-  &:hover{
+
+  &:hover {
     cursor: pointer;
   }
 }
@@ -280,7 +281,6 @@ header {
   margin: 0 12.5px;
   box-sizing: border-box;
 }
-
 
 @media screen and (min-width: 600px) {
   .navigation {
@@ -319,6 +319,17 @@ header {
   .content {
     margin: 0 36px;
   }
+  .links {
+    flex-direction: column;
+  }
+  .sub-wrap {
+    flex-direction: column;
+    margin-left: 5px;
+  }
+  .footer-container {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
 @media screen and (min-width: 900px) {
@@ -327,7 +338,7 @@ header {
   }
   .item_card {
     width: 260px;
-    &__prices{
+    &__prices {
       display: flex;
       align-items: center;
       gap: 10px;
@@ -338,15 +349,23 @@ header {
       object-fit: cover;
     }
   }
+  .links {
+    flex-direction: row;
+  }
+  .sub-wrap {
+    flex-direction: row;
+  }
+  .footer-container {
+    flex-direction: row;
+  }
 }
+
 /**********/
 /* footer */
 /**********/
-
 .footer__upper {
   border-top: 1px solid #d0d0d0;
   border-bottom: 1px solid #d0d0d0;
-
 
   .links {
     display: flex;
@@ -371,10 +390,10 @@ header {
     }
 
     label {
-      display:block; 
-      font-size: 1.5em; 
-      margin: 0.2em 0; 
-      font-weight:bold
+      display: block;
+      font-size: 1.5em;
+      margin: 0.2em 0;
+      font-weight: bold;
     }
     input {
       width: 325px;
@@ -453,13 +472,12 @@ header {
 }
 
 @media screen and (max-width: 900px) {
-
   .footer__upper {
     .links {
       flex-direction: column;
       gap: 40px;
       margin-left: 36px;
-    } 
+    }
 
     .sub-wrap {
       flex-direction: column;
@@ -474,9 +492,9 @@ header {
   .footer-container {
     flex-direction: column;
     margin-bottom: 50px;
-  
+
     .footer-wrap {
       margin-bottom: 10px;
     }
-  }  
+  }
 }
