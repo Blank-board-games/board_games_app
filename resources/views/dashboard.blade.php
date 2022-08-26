@@ -15,12 +15,16 @@
           <button class="sidebar__tablinks" data-target="add-category">Add category</button>
           <button class="sidebar__tablinks" data-target="view-products">View products</button>
           <button class="sidebar__tablinks" data-target="view-orders">View orders</button>
+          <button class="sidebar__tablinks" data-target="view-subscribers">View subscribers</button>
         </div>
         <main class="main">
           <div id="add-product" class="tabcontent">
             <h3>Add new product</h3>
             @if (Session::has('message_prod_add'))
               <div class="session-message">{{ Session::get('message_prod_add') }}</div>
+            @endif
+            @if ($errors->any())
+                <div class="alert-message alert alert-danger">{{ $errors->first()}}</div>
             @endif
             <x-product-add-form :categories="$categories"></x-product-add-form>
           </div>
@@ -120,6 +124,22 @@
                 </tbody>
                 @endforeach
               </table>
+            </div>
+          </div>
+          <div id="view-subscribers" class="tabcontent">
+            <h3>View email subscribers</h3>
+            <div class="subscriber-list">
+              @if (count($subs) > 0)
+                @foreach ($subs as $sub)
+                  <div class="subscriber-item">
+                    <p>{{$sub->email}}</p>
+                  </div>
+                @endforeach
+              @else 
+                <div class="no-items">
+                  <p>No items found</p>
+                </div>
+              @endif
             </div>
           </div>
         </main>

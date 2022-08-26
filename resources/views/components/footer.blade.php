@@ -9,8 +9,8 @@
       </div>
       <div class="links__group">
         <h2>Info</h2>
-        <a href="#">About</a>
-        <a href="#">Contact us</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact us</a>
         <a href="#">Shipping policy</a>
       </div>
     </div>
@@ -19,7 +19,7 @@
         <form action="/subscription/add" method="POST">
           @csrf <!-- {{ csrf_field() }} -->
           <label for="subscribe">Subscribe to our emails</label><br>
-          <input id="subscribe" name="subscribe" type="text" placeholder="Email" required>
+          <input id="subscribe" name="subscribe" type="email" placeholder="Email" required>
           <button type="submit">&#x2192;</button>
         </form>
         @if (Session::has('message_subscription_add'))

@@ -28,12 +28,16 @@ class CategoryController extends BaseController
     ->get();
     $orderIds = DB::table('orders')
     ->select('id', 'email')->distinct()->get();
+    $subs = DB::table('subscriptions')
+    ->select('email', 'id')
+    ->get();
 
     return view('dashboard')
     ->with('categories', $categories)
     ->with('products', $products)
     ->with('orderIds', $orderIds)
-    ->with('orders', $query);
+    ->with('orders', $query)
+    ->with('subs', $subs);
   }
 
   public function delete($id) {

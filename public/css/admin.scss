@@ -24,6 +24,20 @@ svg {
   box-sizing: border-box;
 }
 
+.session-message {
+  margin: 20px 0;
+  padding: 0 20px;
+  font-weight: bold;
+  border-left: 5px solid #40ab40;
+}
+
+.alert-message {
+  margin: 20px 0;
+  padding: 0 20px;
+  font-weight: bold;
+  border-left: 5px solid #cd3a3a;
+}
+
 .sidebar {
   display: flex;
   flex-direction: column;

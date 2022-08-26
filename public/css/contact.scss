@@ -52,17 +52,20 @@
         gap: 16px;
         width: 100%;
 
-        >input {
+        >input,
+        >textarea {
             width: 100%;
         }
 
-        input {
+        input,
+        textarea {
             box-sizing: border-box;
             padding: 16px;
             font-weight: 400;
             font-size: 16px;
             line-height: 15px;
             letter-spacing: 0.04em;
+            resize: vertical;
 
             &:focus {
                 outline: none;

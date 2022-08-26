@@ -20,22 +20,23 @@
         </div>
         <nav class="navigation__menu">
           <ul>
-            <li class="menu-item group">
-              <a href="#">Board games
-                <span class="submenu__arrow">
+            <li class="menu-item">
+              <a href="/catalogue">Catalogue
+                <!-- <span class="submenu__arrow">
                   <svg width="10" height="6" viewBox="0 0 10 6">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0.639893 1.17711L1.347 0.470001L4.99345 4.11645L8.63989 0.470001L9.347 1.17711L4.99345 5.53066L0.639893 1.17711Z" fill="black"/>
                   </svg>
-                </span>
+                </span> -->
               </a>
-            <ul class="submenu">
+            <!-- <ul class="submenu">
                 <li><a href="/catalogue">Shop all</a></li>
               @foreach($categories as $category)
                 <li><a href="#">{{$category->title}}</a></li>
               @endforeach
-            </ul>
+            </ul> -->
             </li>
             <li class="menu-item"><a href="/contact">Contact</a></li>
+            <li class="menu-item"><a href="/about">About</a></li>
           </ul>
         </nav>
       </div>
