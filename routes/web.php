@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\CatalogueController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
@@ -20,11 +21,14 @@ use App\Http\Controllers\CategoryController;
 //     return view('homepage');
 // });
 
+
 Route::get('/', [CatalogueController::class, 'homepage']);
+Route::get('/catalogue/product/{id}', [CatalogueController::class, 'showProduct'])->where(['id' => '[0-9]+']);
 
 Route::get('/test', [CategoryController::class, 'index']);
 
 Route::get('/full', [CatalogueController::class, 'index']);
+
 
 
 Route::get('/catalogue', function () {

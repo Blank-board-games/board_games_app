@@ -13,37 +13,134 @@
 <body>
   <div class="content">
 
-    <h1>Games</h1>
+    <h1 class="games">Games</h1>
     <div class="filter-container">
       <div class="filters">
         <p>Filter:</p>
 
-        <select name="category" id="category">
-          <option value="category">Category</option>
+        <select name="offer_id" id="parent_id" class="form-control dynamic" data-dependent="details">
+          <option value="" disabled="" selected="">Category</option>
           @foreach($categories as $category)
           <option value="{{$category->id}}">{{$category->title}}</option>
           @endforeach
         </select>
-        <select name="" id="price">
-          <option value="adults">Price</option>
-          <option value="volvo">High</option>
-          <option value="saab">Low</option>
+
+        @foreach($categories as $category)
+        <div class="some" id="some_{{ $category->id }}" style="display:none;">
+          {{ $category->details }}
+        </div>
+        @endforeach
+
+
+
+        <select name="options" class="price" onchange="handleSelectChange(event)">
+          <option value="default" selected="selected">Price</option>
+          <option value="high">High</option>
+          <option value="low">Low</option>
         </select>
+
+        </form>
         <select name="" id="availability">
-          <option value="adults">Availability</option>
-          <option value="volvo">In stock</option>
-          <option value="saab">Coming soon</option>
+          <option value="available">Availability</option>
+          <option value="instock">In stock</option>
+          <option value="comingsoon">Coming soon</option>
         </select>
       </div>
       <div>
         <p>8 products</p>
       </div>
     </div>
-    <div class="cards">
-      <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="item title" price="1000.00" oldPrice="800.00"> </x-item-card>
-      <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="item title" price="1000.00" oldPrice="800.00"> </x-item-card>
-      <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="item title" price="1000.00" oldPrice="800.00"> </x-item-card>
-      <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="item title" price="1000.00" oldPrice="800.00"> </x-item-card>
+    <div class="catalog cards">
+
+
+      <x-item-card-json> </x-item-card-json>
+
+
+      <script>
+        function FetchThing() {
+          fetch("http://127.0.0.1:8000/api/products/desc")
+            .then((response) => {
+              if (response.ok) {
+                return response.json();
+              } else {
+                throw new Error("error");
+              }
+            })
+            .then(data => {
+              console.log(data);
+
+              const select = document.querySelector(".price").value;
+              const games = document.querySelector(".games");
+              //var value = select.value;
+              //const dropDownValue = document.querySelector('.price').value;
+
+
+              const image = document.querySelector('.image');
+              const price = document.querySelector('.item_card__price');
+              const discount = document.querySelector(".item_card__discount");
+
+
+              image.src = data[0].image_path;
+              price.textContent = data[0].price;
+              title.textContent = data[0].title;
+
+            })
+        }
+
+        //FetchThing();
+
+        function handleSelectChange(event) {
+          //FetchThing();
+          const selectElement = event.target;
+          const value = selectElement.value;
+          const title = document.querySelector('.item_card__title');
+
+          if (selectElement.value == "high") {
+            fetch("http://127.0.0.1:8000/api/products/desc")
+              .then((response) => {
+                if (response.ok) {
+                  return response.json();
+
+                } else {
+                  throw new Error("error");
+                }
+              })
+              .then(data => {
+                const title = document.querySelector('.item_card__title');
+                const price = document.querySelector('.item_card__price');
+                //image.src = data[0].image_path;
+                price.textContent = data[0].price;
+                title.textContent = data[0].title;
+                console.log(data);
+                //alert(value);
+
+              })
+          } else if (selectElement.value == "low") {
+            fetch("http://127.0.0.1:8000/api/products/asc")
+              .then((response) => {
+                if (response.ok) {
+                  return response.json();
+
+                } else {
+                  throw new Error("error");
+                }
+              })
+              .then(data => {
+                for (let i = 0; i < data.length; i++) {
+                  const title = document.querySelector('.item_card__title');
+                  const price = document.querySelector('.item_card__price');
+                  const display = document.querySelector('.catalog');
+
+
+                  price.textContent = data[i].price;
+                  title.textContent = data[i].title;
+                  console.log(data);
+                }
+
+              })
+          }
+        }
+      </script>
     </div>
     <hr>
     <div class="links">

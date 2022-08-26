@@ -11,17 +11,11 @@ class itemCard extends Component
      *
      * @return void
      */
-    public $imageSrc;
-    public $title;
-    public $price; 
-    public $oldPrice;
+    public $product;
 
-    public function __construct($imageSrc, $title, $price, $oldPrice=NULL)
+    public function __construct($product)
     {
-        $this->imageSrc = $imageSrc;
-        $this->title = $title;
-        $this->price = $price; 
-        $this->oldPrice = $oldPrice;
+        $this->product = $product;
     }
 
     /**

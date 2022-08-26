@@ -1,0 +1,156 @@
+.product {
+    padding-top: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 58px;
+
+    &__images {
+        width: 100%;
+
+        img {
+            width: 100%;
+        }
+    }
+    &__information {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        color: #121212;
+
+        h2 {
+            font-weight: 400;
+            font-size: 30px;
+        }
+    }
+    &__price {
+        font-size: 17px;
+        margin: 16px 0;
+    }
+    &__old_price{
+        text-decoration-line: line-through;
+    }
+    &__quantity{
+        p{
+            font-weight: 400;
+            font-size: 13px;
+        }
+    }
+    &__btn{
+        padding: 16px;
+        border: 1px solid #000;
+        text-align: center;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+    }
+    &__buy{
+        background: #000;
+        color: #FFF;
+        margin-top: 8px;
+    }
+    &__desc{
+        padding-top: 16px;
+        line-height: 172%;
+        letter-spacing: 0.04em;
+        min-height: 190px;
+    }
+    &__counter{
+        border: 1px solid #D0D0D0;
+        display: flex;
+        justify-content: space-between;
+        width: 138px;
+        padding: 12px 17.5px;
+        margin: 12px 0;
+        input{
+            border: none;
+            text-align: center;
+            width: 85px;
+
+            &:focus {
+                outline: none;
+            }
+        }
+        >div{
+            padding: 0 10px;
+            cursor: pointer;
+        }
+    }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+}
+.benefits{
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    &__card {
+        box-sizing: border-box;
+        padding: 16px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        color: #121212;
+        h3{
+            font-weight: 400;
+            font-size: 18px;
+        }
+        p {
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            padding-top: 16px;
+        }
+
+    }
+}
+
+.similar_prod{
+    display: none;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    h2{
+        font-weight: 400;
+        font-size: 24px;
+        color: #121212;
+    }
+    &__cards{
+        display: flex;
+        justify-content: space-between;
+        gap: 24px 10px;
+        padding-top: 24px;
+    }
+
+}
+
+@media screen and (min-width: 600px) {
+    .product {
+        padding-top: 64px;
+        flex-direction: row;
+        justify-content: space-between;
+        &__information{
+            max-width: 40vw;
+        }
+    }
+    .benefits {
+        padding-top: 60px;
+        flex-direction: row;
+        gap: 30px;
+
+        &__card {
+            width: 50%;
+        }
+    }
+    .similar_prod{
+        display: block;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .content{ 
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 40px;
+    }
+
+}

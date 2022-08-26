@@ -5,6 +5,7 @@ body {
 }
 
 * {
+  margin: 0;
   padding: 0;
   font-family: "Assistant", sans-serif;
 }
@@ -193,13 +194,15 @@ header {
     font-size: 16px;
     letter-spacing: 0.04em;
   }
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .content {
   margin: 0 12.5px;
   box-sizing: border-box;
 }
-
 
 @media screen and (min-width: 600px) {
   .navigation {
@@ -240,6 +243,17 @@ header {
       }
     }
   }
+  .links {
+    flex-direction: column;
+  }
+  .sub-wrap {
+    flex-direction: column;
+    margin-left: 5px;
+  }
+  .footer-container {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
 @media screen and (min-width: 900px) {
@@ -248,18 +262,33 @@ header {
   }
   .item_card {
     width: 260px;
+    &__prices {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+  .links {
+    flex-direction: row;
+  }
+  .sub-wrap {
+    flex-direction: row;
+  }
+  .footer-container {
+    flex-direction: row;
   }
 }
+
 /**********/
 /* footer */
 /**********/
-
 .links {
   display: flex;
   gap: 180px;
   margin-top: 65px;
   margin-left: 60px;
 }
+
 .sub-wrap {
   display: flex;
   margin: 64px 0 64px 60px;

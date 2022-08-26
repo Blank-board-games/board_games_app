@@ -17,12 +17,7 @@ body {
       }
     }
   }
-  .cards {
-    margin: 40px 0 115px 60px;
-    display: flex;
-    gap: 9.5px;
-    justify-content: center;
-  }
+
   .links {
     display: flex;
     gap: 180px;
@@ -131,4 +126,30 @@ h2 {
   font-weight: 400;
   font-size: 18px;
   line-height: 116%;
+}
+
+@media screen and (min-width: 600px) {
+  .filter-container {
+    margin-left: 12px;
+    .filters {
+      display: flex;
+      gap: 4px;
+    }
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .cards {
+    margin: 40px 0 115px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 9.5px;
+    justify-content: center;
+  }
 }
