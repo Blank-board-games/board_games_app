@@ -27,10 +27,17 @@ class ApiController extends Controller
 
         return response()->json($product, 200);
     }
+    public function default()
+    {
+        $product = DB::table('products')
+            ->orderBy('updated_at')
+            ->get();
+        return response()->json($product, 200);
+    }
 
     public function stock($stockSituation)
     {
-        $stock = ($stockSituation == 0) ? 'in' : 'out';
+        $stock = ($stockSituation == 'in') ? true : false;
 
         if ($stock) {
             $product = DB::table('products')
@@ -44,14 +51,16 @@ class ApiController extends Controller
         return response()->json($product, 200);
     }
 
-    public function categories($title)
+    public function categories($id)
     {
-        $title = ($title == 0) ? 'strategy' : 'noin';
 
-        $categorie = DB::table('categories')
-            ->where('title', '=', 'strategy_games')
+        $products = DB::table('categories')
+            ->join('products', 'products.category_id', '=', 'categories.id')
+            ->select('products.*')
+            ->where('categories.id', '=', $id)
             ->get();
+            return $products;
 
-        return response()->json($categorie, 200);
+        return response()->json($products, 200);
     }
 }

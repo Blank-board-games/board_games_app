@@ -47,7 +47,7 @@
         </select>
       </div>
       <div>
-        <p>8 products</p>
+        <p id="count">8 products</p>
       </div>
     </div>
     <div class="catalog cards">
