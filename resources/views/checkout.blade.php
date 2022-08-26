@@ -17,11 +17,13 @@
                 <div class="checkout__messages">
                     @if (Session::has('message'))
                         <div class="message">{{ Session::get('message') }}</div>
+                </div>
                     @elseif (Session::has('error'))
                         <div class="message">{{ Session::get('error') }}</div>
                         <a href="/catalogue">Continue shopping</a>
-               </div>
+                </div>
                     @else
+                </div>
                         <h1>Checkout</h1>
                         <form action="{{action( [App\Http\Controllers\CartController::class, 'checkout'])}}" method="post">
                             @csrf
@@ -32,6 +34,7 @@
                         </form>
                     @endif
             </div>
+            
         </div>
         <x-footer></x-footer>
     <script src="{{asset('js/script.js')}}"></script>

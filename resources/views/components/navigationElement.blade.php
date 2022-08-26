@@ -35,7 +35,7 @@
               @endforeach
             </ul>
             </li>
-            <li class="menu-item"><a href="#">Contact</a></li>
+            <li class="menu-item"><a href="/contact">Contact</a></li>
           </ul>
         </nav>
       </div>
