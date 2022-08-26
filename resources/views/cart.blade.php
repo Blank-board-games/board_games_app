@@ -14,8 +14,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 </head>
+<body>
 <x-navigation></x-navigation>
-
 <div class="content">
     <div class="cart">
         <div class="cart__header">
@@ -38,8 +38,8 @@
                 @endphp
                 <div class="cart__item" data-id="{{ $id }}">
                     @php 
-                    $filepath_list = explode(',', $details['images']);
-                @endphp
+                        $filepath_list = explode(',', $details['images']);
+                    @endphp
                     <img src="{{asset("storage/".$filepath_list[0])}}" alt="">
                     <div class="cart__info">
                         <h2>{{ $details['title'] }}</h2>
@@ -78,13 +78,12 @@
                 <p>Taxes and shipping calculated at checkout</p>
                 <a href="{{ action([App\Http\Controllers\CartController::class, 'checkoutIndex'])}}">Checkout</a>
             </div>
-    </div>
-@else
+    @else
     <div class="cart__titles">
         <p>Your cart is empty</p>
     </div>
-
     @endif
+    </div>
     <div class="similar_prod">
         <h2>You may also like</h2>
         <div class="similar_prod__cards">
