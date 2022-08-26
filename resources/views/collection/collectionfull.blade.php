@@ -52,16 +52,14 @@
     </div>
     <div class="catalog cards">
 
-
       <x-item-card-json> </x-item-card-json>
-
-
 
     </div>
 
   </div>
   <x-footer></x-footer>
 
+  <script src="{{ asset('js/script.js')}}"></script>
   <script src="{{ asset('js/collectionfull.js')}}"></script>
 
 </body>

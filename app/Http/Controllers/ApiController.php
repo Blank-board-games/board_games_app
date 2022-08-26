@@ -30,12 +30,17 @@ class ApiController extends Controller
 
     public function stock($stockSituation)
     {
-        $stockSituation = ($stockSituation == 0) ? 'in' : 'noin';
+        $stock = ($stockSituation == 0) ? 'in' : 'out';
 
-        $product = DB::table('products')
-            ->where('count_in_ctck', '>', 0)
-            ->get();
-
+        if ($stock) {
+            $product = DB::table('products')
+                ->where('count_in_stock', '>', 0)
+                ->get();
+        } else {
+            $product = DB::table('products')
+                ->where('count_in_stock', '=', 0)
+                ->get();
+        }
         return response()->json($product, 200);
     }
 
