@@ -13,11 +13,22 @@ class navigationElement extends Component
      * @return void
      */
     public $categories;
-    
+    public $count;
+
     public function __construct()
     {
       $cat =  Category::all();
       $this->categories = $cat;
+      $this->count = $this->getCartObjectCount();
+
+    }
+    public function getCartObjectCount(){
+        $count = 0;
+        $cart = session()->get('cart');
+        if ($cart) {
+            $count = count($cart);
+        }
+        return $count;
     }
 
     /**

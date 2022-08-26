@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Product;
+use App\Models\Order;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
-use App\Models\Product;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class CategoryController extends BaseController
 {
@@ -18,7 +19,34 @@ class CategoryController extends BaseController
   public function index()
   {
     $categories =  Category::all();
-    return view('welcome')->with('categories', $categories);
+    $products =  Product::all();
+    $query =  DB::table('orders')
+    ->leftjoin('order_product', 'orders.id', '=', 'order_id')
+    ->join('products', 'product_id', '=', 'products.id')
+    ->select('orders.id', 'products.title', 'order_product.quantity' , 'order_product.product_price')
+    ->orderBy('orders.id')
+    ->get();
+    $orderIds = DB::table('orders')
+    ->select('id', 'email')->distinct()->get();
+    $subs = DB::table('subscriptions')
+    ->select('email', 'id')
+    ->get();
+
+    return view('dashboard')
+    ->with('categories', $categories)
+    ->with('products', $products)
+    ->with('orderIds', $orderIds)
+    ->with('orders', $query)
+    ->with('subs', $subs);
+  }
+
+  public function delete($id) {
+    $category = Category::where('id', $id)->first();
+    $category->delete();
+
+    Session::flash('message_cat_del', "Category deleted succesfully!");
+    Session::flash('source', "add-category");
+    return redirect()->back();
   }
 
   public function add()
@@ -30,9 +58,8 @@ class CategoryController extends BaseController
       'title' => $cat_title
     ]);
 
-    if($category) $status = 'Category added succesfully';
-
-    return redirect('/test')->with('status', $status);
-
+    Session::flash('message_cat_add', "Category added succesfully!");
+    Session::flash('source', "add-category");
+    return redirect()->back();
   }
 }

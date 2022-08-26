@@ -1,5 +1,5 @@
 .intro{ 
-    min-height: 400px;
+    min-height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,6 +35,11 @@
             margin-top: 1px;
         }
     }
+}
+.wrapper{ 
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 40px;;
 }
 .about{ 
     text-align: center;
@@ -93,7 +98,7 @@
 @media screen and (min-width: 600px) {
     .intro{ 
         &__content{ 
-            max-width: 460px;
+            max-width: 500px;
             padding: 40px;
             background: rgba(0, 0, 0, 0.6);
         }

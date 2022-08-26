@@ -17,9 +17,15 @@
         <div class="product">
             <div class="product__images">
                 {{-- TODO: fix image path --}}
-                <img src="{{ asset('img/temp-card-img.png') }}" alt="">
+                @php
+                    $filepath_list = explode(',', $product->image_path);
+                @endphp
+                <img src="{{asset("storage/".$filepath_list[0])}}" alt="">
             </div>
             <div class="product__information">
+                @if (Session::has('message'))
+                    <div class="message success">{{ Session::get('message') }}</div>
+                @endif
                 <h2>{{ $product->title }}</h2>
                 @if (isset($product->new_price))
                     <p class="product__old_price">&euro; {{ $product->price }}</p>
@@ -27,18 +33,34 @@
                 @else
                     <p class="product__price">&euro; {{ $product->price }}</p>
                 @endif
+                @if($product->count_in_stock != 0)
 
-                <div class="product__quantity">
-                    <p>Quantity</p>
-                    <div class="product__counter">
-                        <div class="product__btn-subtract">-</div>
-                        <input type="number" min="1" max="{{$product->count_in_stock}}" class="product-quantity" value="1">
-                        <div class="product__btn-add">+</div>
+                <form action="{{ action([App\Http\Controllers\CartController::class, 'addToCart']) }}" method="post">
+                    @csrf
+                    @method('POST')
+                    <div class="product__quantity">
+                        <p>Quantity</p>
+                        <p>Left in stock: {{$product->count_in_stock}}</p>
+                        @if($count_in_cart>0)
+                            <p>Available: {{$product->count_in_stock - $count_in_cart}}</p>
+                        @endif
+                        @if($product->count_in_stock - $count_in_cart!= 0)
+                            <div class="product__counter">
+                                <div class="product__btn-subtract">-</div>
+                                <input type="number" name="quantity" min="1" max="{{$product->count_in_stock - $count_in_cart}}" class="product-quantity" value="1">
+                                <div class="product__btn-add">+</div>
+                            </div>
+                        @endif
                     </div>
-                </div>
-
-                <div class="product__btn product__add">Add to cart</div>
-                <div class="product__btn product__buy">Buy it now</div>
+                    @if($product->count_in_stock - $count_in_cart!= 0)
+                        <input type="text" name="id" value="{{$product->id}}" hidden class="product-id">
+                        <button class="product__btn product__add" type="submit" name="submit">Add to cart</button>
+                        {{-- <button class="product__btn product__buy" type="submit" name="submit-one">Buy it now</button> --}}
+                    @endif
+                </form>
+                @else
+                    <div class="message sold">SOLD</div>
+                @endif
                 @if (isset($product->description))
                     <p class="product__desc">{{ $product->description }}</p>
                 @endif

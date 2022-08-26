@@ -7,7 +7,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Models\Product;
 
 class ProductController extends BaseController
@@ -21,9 +21,15 @@ class ProductController extends BaseController
     ], 200);
   }
 
-  public function get()
-  {
-    return response()->json([], 200);
+  public function delete($id) {
+    $product = Product::where('id', $id)->first();
+    $product->delete();
+
+    Storage::disk('public')->deleteDirectory("$id");
+
+    Session::flash('message_prod_del', "Product deleted succesfully!");
+    Session::flash('source', "view-products");
+    return redirect()->back();
   }
 
   public function add()
@@ -48,7 +54,7 @@ class ProductController extends BaseController
     $prod_descr = $_POST['description'];
     $prod_count = $_POST['count'];
     $prod_price = $_POST['price'];
-    $prod_age = "+" . $_POST['age'];
+    $prod_age = $_POST['age'] . "+";
     $prod_category = $_POST['category'];
 
     $product = Product::create([
@@ -58,10 +64,10 @@ class ProductController extends BaseController
       'price' => $prod_price,
       'age_recom' => $prod_age,
       'category_id' => $prod_category,
-      'image_path' => 'www/produkts'
+      'image_path' => ''
     ]);
     //Line below needs to be corrected
-    $prod_image_path = Storage::url('category_img3.png');
+    // $prod_image_path = Storage::url('category_img3.png');
 
     Storage::disk('public')->makeDirectory("$product->id");
     $target_dir = __DIR__ . '/uploads';
@@ -72,10 +78,16 @@ class ProductController extends BaseController
     foreach ($images as $image) {
       $target_file = $target_dir . basename($image['name']);
       $image_file_type = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-      if ($image_file_type != "jpg" && $image_file_type != "png" && $image_file_type != "jpeg")
-        return "Only jpg, jpeg, png file types allowed";
-      if ($image['size'] > 1000000) return "File is too large";
-
+      if ($image_file_type != "jpg" && $image_file_type != "png" && $image_file_type != "jpeg") {
+        $product->delete();
+        Storage::disk('public')->deleteDirectory("$product->id");
+        return redirect()->back()->withErrors(['Only jpg, jpeg, png file types allowed']);
+      }
+      if ($image['size'] > 1000000) {
+        $product->delete();
+        Storage::disk('public')->deleteDirectory("$product->id");
+        return redirect()->back()->withErrors(['File is too large']);
+      }
       $size = getimagesize($image["tmp_name"]);
       if ($size) {
         $count++;
@@ -83,15 +95,14 @@ class ProductController extends BaseController
       }
     }
 
-    $output = [
-      "status" => true,
-      "data" => $_POST,  //atgriež failu nosaukumus
-      "files" => $images,  //atgriež failus
-      "title" => $prod_title,
-      "url" => $prod_image_path
-    ];
+    $files = Storage::disk('public')->files("$product->id");
+    $filepath_list = implode(',', $files);
 
-    return redirect('/test')->with('status', $output);
-        // return response()->json($output, 200);
+    Product::where('id', $product->id)
+      ->update(['image_path' => $filepath_list]);
+
+    Session::flash('message_prod_add', "Product added succesfully!");
+    Session::flash('source', "add-product");
+    return redirect()->back();
   }
 }

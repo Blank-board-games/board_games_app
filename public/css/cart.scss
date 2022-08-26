@@ -1,0 +1,201 @@
+.cart{
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    display: flex;
+    flex-direction: column;
+    gap:40px;
+    color: #121212;
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h2{
+            font-weight: 400;
+            font-size: 30px;
+        }
+        a{
+            text-decoration: underline;
+            letter-spacing: 0.04em;
+        }
+    }
+    &__titles{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-transform: uppercase;
+        padding-bottom: 16px;
+        box-shadow: inset 0px -1px 0px #E1E3E5;
+
+        p{
+            font-weight: 400;
+            font-size: 13px;
+            letter-spacing: 0.03em;
+            color: rgba(18, 18, 18, 0.75);
+        }
+        &-large{
+            display: none;
+        }
+    }
+    &__item{
+        width: 100%;
+        display: flex;
+        img{
+            width: 74px;
+            height: 74px;
+            object-fit: cover; 
+            padding-right: 20.5px;
+        }
+    }
+    &__info{
+        margin-right: auto;
+        h2{
+            font-weight: 400;
+            font-size: 16px;
+            letter-spacing: 0.04em;
+        }
+    }
+    &__buttons{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        button{
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+    }
+
+    &__counter{
+        border: 1px solid #D0D0D0;
+        display: flex;
+        justify-content: space-between;
+        width: 100px;
+        padding: 12px 17.5px;
+        margin: 12px 0;
+        input{
+            border: none;
+            text-align: center;
+            width: 85px;
+
+            &:focus {
+                outline: none;
+            }
+        }
+        >div{
+            padding: 0 10px;
+            cursor: pointer;
+        }
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    &__total{
+        font-weight: 400;
+        letter-spacing: 0.04em;
+    }
+
+    &__checkout{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 24px;
+        gap: 16px;
+        h2{
+            font-weight: 400;
+            font-size: 16px;
+            letter-spacing: 0.04em;
+        }
+        p{
+            font-weight: 400;
+            font-size: 13px;
+            letter-spacing: 0.03em;
+
+        }
+        a{
+            background: #000000;
+            border: none;
+            text-align: center;
+            padding: 16px 0;
+            width: 100%;
+            max-width: 357px;
+            color: #FFF;
+            font-family: 'Assistant';
+            font-weight: 400;
+            font-size: 16px;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+        }
+    }
+}
+.similar_prod{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+    h2{
+        font-weight: 400;
+        font-size: 24px;
+        color: #121212;
+    }
+    &__cards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px 10px;
+        padding-top: 24px;
+    }
+
+}
+@media screen and (min-width: 900px) {
+    .cart{
+        position: relative;
+        &__item{
+            img{
+                width: 100px;
+                height: 100px;
+                object-fit: cover; 
+            }
+        }
+        &__titles{
+            &-large{
+                display: block;
+                margin-left: auto;
+                margin-right: 288px;
+            }
+        }
+        &__info{
+            display: flex;
+            justify-content: space-between;
+            margin: 0;
+            width: 100%;
+        }
+        &__buttons{
+            position: absolute;
+            right: 250px;
+            height: fit-content;
+        }
+        &__checkout{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        &__counter{
+            margin: 0;
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .wrapper{
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 40px;
+    }
+    .similar_prod{
+        &__cards{
+            justify-content: space-between;
+        }
+    }
+}

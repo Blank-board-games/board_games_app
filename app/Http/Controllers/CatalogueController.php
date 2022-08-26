@@ -9,16 +9,10 @@ use Illuminate\Support\Facades\DB;
 
 class CatalogueController extends Controller
 {
-
-    //public $sorting;
-    //public $pagesize;
-
     public function amount()
     {
         $this->sorting = "default";
     }
-
-
 
     public function index()
     {
@@ -51,19 +45,13 @@ class CatalogueController extends Controller
             ->where('count_in_stock', '<>', 0)
             ->get();
         $count = 8 - $products->count(); //count, to get 8 products
-
-
-        if ($count != 0) {
-            $addition_products = Product::limit($count)->offset(0)->orderBy('updated_at', 'DESC')->where('new_price', '=', NULL)->get();
-            $products = $products->merge($addition_products);
-        }
-
         if ($count != 0) {
             $addition_products = Product::limit($count)->offset(0)
                 ->orderBy('updated_at', 'DESC')
                 ->where('new_price', '=', NULL)
                 ->where('count_in_stock', '<>', 0)
                 ->get();
+
             if ($count != 4) {
                 $products = $products->merge($addition_products);
             } else {
@@ -99,8 +87,30 @@ class CatalogueController extends Controller
             }
         }
 
+        $count_in_cart = 0;
+        if (session()->get('cart')) {
+            $cart = session()->get('cart');
+            if (isset($cart[$id])) {
+                $count_in_cart = $cart[$id]['quantity'];
+            }
+        }
         return view('product')
             ->with('product', $product)
-            ->with('products', $similar_products);
+            ->with('products', $similar_products)
+            ->with('count_in_cart', $count_in_cart);
+    }
+
+    public function showSearch(Request $request)
+    {
+        if ($request->input('search')) {
+            $phrase = $request->input('search');
+            $products =  Product::join('categories', 'categories.id', '=', 'products.category_id')
+                ->select('products.*')
+                ->where('products.title', 'LIKE', '%' . $phrase . '%')
+                ->orWhere('categories.title', 'LIKE', '%' . $phrase . '%')
+                ->get();
+            return view('search')->with('products', $products);
+        }
+        return view('search');
     }
 }

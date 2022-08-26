@@ -26,14 +26,7 @@
       </div>
     </div>
     <div class="cards">
-      <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="item title" price="1000.00" oldPrice="800.00"> </x-item-card>
-      <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="item title" price="1000.00" oldPrice="800.00"> </x-item-card>
-      <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="item title" price="1000.00" oldPrice="800.00"> </x-item-card>
-      <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="item title" price="1000.00" oldPrice="800.00"> </x-item-card>
-      <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="item title" price="1000.00" oldPrice="800.00"> </x-item-card>
-      <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="item title" price="1000.00" oldPrice="800.00"> </x-item-card>
-      <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="item title" price="1000.00" oldPrice="800.00"> </x-item-card>
-      <x-item-card imageSrc="{{asset('img/temp-card-img.png')}}" title="item title" price="1000.00" oldPrice="800.00"> </x-item-card>
+
     </div>
     <div class="line one"></div>
     <div class="links">

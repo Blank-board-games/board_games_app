@@ -9,6 +9,10 @@
 
         img {
             width: 100%;
+            height: auto;
+            max-height: 500px;
+            aspect-ratio: 1;
+            object-fit: cover;
         }
     }
     &__information {
@@ -35,12 +39,16 @@
             font-size: 13px;
         }
     }
-    &__btn{
+    &__btn, button{
         padding: 16px;
+        width: 100%;
         border: 1px solid #000;
         text-align: center;
         letter-spacing: 0.04em;
         cursor: pointer;
+    }
+    &__add{
+        background: #FFF;
     }
     &__buy{
         background: #000;
@@ -74,11 +82,21 @@
             cursor: pointer;
         }
     }
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    .success{
+        color: rgb(7, 167, 7);
+        font-weight: 600;
+        font-size: 20px;
+    }
+    .sold{
+        color: rgb(160, 17, 17);
+        font-weight: 600;
+        font-size: 20px;
+    }
 }
 .benefits{
     padding-top: 40px;
@@ -124,13 +142,18 @@
 
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 900px) {
     .product {
         padding-top: 64px;
         flex-direction: row;
         justify-content: space-between;
         &__information{
             max-width: 40vw;
+        }
+        img{
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
         }
     }
     .benefits {
@@ -147,10 +170,16 @@
     }
 }
 @media screen and (min-width: 1200px) {
-    .content{ 
+    .wrapper{
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 40px;
     }
-
+    .product{
+        img{
+            width: 530px;
+            height: 530px;
+            object-fit: cover;
+        }
+    }
 }
