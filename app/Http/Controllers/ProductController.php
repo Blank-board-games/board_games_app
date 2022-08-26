@@ -81,14 +81,13 @@ class ProductController extends BaseController
       if ($image_file_type != "jpg" && $image_file_type != "png" && $image_file_type != "jpeg") {
         $product->delete();
         Storage::disk('public')->deleteDirectory("$product->id");
-        return "Only jpg, jpeg, png file types allowed";
+        return redirect()->back()->withErrors(['Only jpg, jpeg, png file types allowed']);
       }
       if ($image['size'] > 1000000) {
         $product->delete();
         Storage::disk('public')->deleteDirectory("$product->id");
-        return "File is too large";
+        return redirect()->back()->withErrors(['File is too large']);
       }
-
       $size = getimagesize($image["tmp_name"]);
       if ($size) {
         $count++;

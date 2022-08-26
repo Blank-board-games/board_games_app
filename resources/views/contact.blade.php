@@ -28,10 +28,10 @@
             <form action="" class="contact_form__form">
                 <div class="contact_form__first_row">
                     <input type="text" name="name" placeholder="Name">
-                    <input type="text" name="email" placeholder="Email">
+                    <input type="email" name="email" placeholder="Email">
                 </div>
-                <input type="text" name="phone" placeholder="Phone number">
-                <input type="text" name="comment" placeholder="Comment">
+                <input type="tel" name="phone" placeholder="Phone number">
+                <textarea name="comment" id="" cols="30" rows="10" placeholder="Comment"></textarea>
                 <button type="button">Send</button>
             </form>
 
