@@ -27,4 +27,26 @@ class ApiController extends Controller
 
         return response()->json($product, 200);
     }
+
+    public function stock($stockSituation)
+    {
+        $stockSituation = ($stockSituation == 0) ? 'in' : 'noin';
+
+        $product = DB::table('products')
+            ->where('count_in_ctck', '>', 0)
+            ->get();
+
+        return response()->json($product, 200);
+    }
+
+    public function categories($title)
+    {
+        $title = ($title == 0) ? 'strategy' : 'noin';
+
+        $categorie = DB::table('categories')
+            ->where('title', '=', 'strategy_games')
+            ->get();
+
+        return response()->json($categorie, 200);
+    }
 }

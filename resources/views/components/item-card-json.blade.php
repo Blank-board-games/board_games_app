@@ -1,9 +1,7 @@
 <div class="item_card">
     <a href="">
         <div class="item_card__image">
-
-            <img class="image" src="{{asset('img/temp-card-img.png')}}" alt="">
-
+            <img class="image" src="{{asset('img/temp-card-img.jpg')}}" alt="">
             <div class="item_card__sale">Sale</div>
 
         </div>

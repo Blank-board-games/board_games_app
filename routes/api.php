@@ -29,3 +29,7 @@ Route::post('category/add', [CategoryController::class, 'add']);
 use App\Http\Controllers\ApiController;
 
 Route::get('/products/{price}', [ApiController::class, 'index']);
+
+Route::get('/products/{count_in_stock}', [ApiController::class, 'stock']);
+
+Route::get('/categories/{title}', [ApiController::class, 'categories']);
