@@ -56,157 +56,212 @@
       <x-item-card-json> </x-item-card-json>
 
 
-      <script>
-        function FetchThing() {
+
+    </div>
+    <script>
+      function FetchThing() {
+        fetch("http://127.0.0.1:8000/api/products/desc")
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            } else {
+              throw new Error("error");
+            }
+          })
+          .then(data => {
+            console.log(data);
+
+            const select = document.querySelector(".price").value;
+            const games = document.querySelector(".games");
+            //var value = select.value;
+            //const dropDownValue = document.querySelector('.price').value;
+
+
+            const image = document.querySelector('.image');
+            const price = document.querySelector('.item_card__price');
+            const discount = document.querySelector(".item_card__discount");
+
+
+
+            image.src = data[0].image_path;
+            price.textContent = data[0].price;
+            title.textContent = data[0].title;
+
+          })
+      }
+
+      //FetchThing();
+
+      function handleSelectChange(event) {
+        //FetchThing();
+        const selectElement = event.target;
+        const value = selectElement.value;
+        const title = document.querySelector('.item_card__title');
+
+        if (selectElement.value == "high") {
           fetch("http://127.0.0.1:8000/api/products/desc")
             .then((response) => {
               if (response.ok) {
                 return response.json();
+
               } else {
                 throw new Error("error");
               }
             })
             .then(data => {
-              console.log(data);
 
-              const select = document.querySelector(".price").value;
-              const games = document.querySelector(".games");
-              //var value = select.value;
-              //const dropDownValue = document.querySelector('.price').value;
-
-
-              const image = document.querySelector('.image');
-              const price = document.querySelector('.item_card__price');
-              const discount = document.querySelector(".item_card__discount");
-
-
-              image.src = data[0].image_path;
-              price.textContent = data[0].price;
-              title.textContent = data[0].title;
-
-            })
-        }
-
-        //FetchThing();
-
-        function handleSelectChange(event) {
-          //FetchThing();
-          const selectElement = event.target;
-          const value = selectElement.value;
-          const title = document.querySelector('.item_card__title');
-
-          if (selectElement.value == "high") {
-            fetch("http://127.0.0.1:8000/api/products/desc")
-              .then((response) => {
-                if (response.ok) {
-                  return response.json();
-
-                } else {
-                  throw new Error("error");
-                }
-              })
-              .then(data => {
+              var newData = (JSON.stringify(data));
+              var index;
+              var obj = JSON.parse(newData);
+              //for (let i = 0; i < data.length; i++) {
+              const display = document.querySelector('.catalog');
+              display.innerHTML = " ";
+              for (let index = 0; index < obj.length; index++) {
                 const title = document.querySelector('.item_card__title');
                 const price = document.querySelector('.item_card__price');
-                //image.src = data[0].image_path;
-                price.textContent = data[0].price;
-                title.textContent = data[0].title;
+                const display = document.querySelector('.catalog');
+                // price.textContent = data[key][i].price;
+                // price.textContent = data[i].price;
+
+                //title.textContent = obj[index]['title'];
+
+                display.innerHTML += `<div class="item_card">
+    <a href="">
+        <div class="item_card__image">
+            <img class="image" src="{{asset('img/temp-card-img.png')}}" alt="">
+            <div class="item_card__sale">Sale</div>
+        </div>
+        <p class="item_card__title">` + obj[index]['title'] + `</p>
+        <div class="item_card__prices">
+            <p class="item_card__discount"> </p>
+            <p class="item_card__price">` + obj[index]['price'] + `</p>
+            <p class="item_card__price"></p>
+        </div>
+    </a>
+</div>`;
+              }
+
+            })
+        } else if (selectElement.value == "low") {
+
+          fetch("http://127.0.0.1:8000/api/products/asc")
+            .then((response) => {
+              if (response.ok) {
+                return response.json();
+
+              } else {
+                throw new Error("error");
+              }
+            })
+            .then(data => {
+
+              // var length = obj.data.length;
+              // var html = new Array(length);
+              //for (var key in data) {
+              var newData = (JSON.stringify(data));
+              var index;
+              var obj = JSON.parse(newData);
+              //for (let i = 0; i < data.length; i++) {
+
+              const display = document.querySelector('.catalog');
+              display.innerHTML = " ";
+              for (let index = 0; index < obj.length; index++) {
+                const title = document.querySelector('.item_card__title');
+                const price = document.querySelector('.item_card__price');
+                const display = document.querySelector('.catalog');
+                // price.textContent = data[key][i].price;
+                // price.textContent = data[i].price;
+
+
+                display.innerHTML += `<div class="item_card">
+    <a href="">
+        <div class="item_card__image">
+            <img class="image" src="{{asset('img/temp-card-img.png')}}" alt="">
+            <div class="item_card__sale">Sale</div>
+        </div>
+        <p class="item_card__title">` + obj[index]['title'] + `</p>
+        <div class="item_card__prices">
+            <p class="item_card__discount"> </p>
+            <p class="item_card__price">` + obj[index]['price'] + `</p>
+            <p class="item_card__price"></p>
+        </div>
+    </a>
+</div>`;
+
+
                 console.log(data);
-                //alert(value);
-
-              })
-          } else if (selectElement.value == "low") {
-            fetch("http://127.0.0.1:8000/api/products/asc")
-              .then((response) => {
-                if (response.ok) {
-                  return response.json();
-
-                } else {
-                  throw new Error("error");
-                }
-              })
-              .then(data => {
-                for (let i = 0; i < data.length; i++) {
-                  const title = document.querySelector('.item_card__title');
-                  const price = document.querySelector('.item_card__price');
-                  const display = document.querySelector('.catalog');
-
-
-                  price.textContent = data[i].price;
-                  title.textContent = data[i].title;
-                  console.log(data);
-                }
-
-              })
-          }
+              }
+              //}
+            })
         }
-      </script>
+      }
+    </script>
+  </div>
+  <hr>
+  <div class="links">
+    <div>
+      <h2>Quick links</h2>
+      <p>Games</p>
+      <p>Kids</p>
+      <p>Lookbook</p>
     </div>
-    <hr>
-    <div class="links">
-      <div>
-        <h2>Quick links</h2>
-        <p>Games</p>
-        <p>Kids</p>
-        <p>Lookbook</p>
-      </div>
-      <div>
-        <h2>Info</h2>
-        <p>About</p>
-        <p>Contact us</p>
-        <p>Shipping policy</p>
-      </div>
+    <div>
+      <h2>Info</h2>
+      <p>About</p>
+      <p>Contact us</p>
+      <p>Shipping policy</p>
     </div>
-    <div class="sub-wrap">
-      <div>
-        <h2 class="subscription">Subscribe to our emails</h2>
-        <label>
-          <input type="text" placeholder="Email">
-        </label>
-      </div>
-      <div class="icons">
-        <img src="{{asset('icons/twit.svg')}}" alt="">
-        <img src="{{asset('icons/facebook.svg')}}" alt="">
-        <img src="{{asset('icons/pinterest.svg')}}" alt="">
-        <img src="{{asset('icons/instagram.svg')}}" alt="">
-        <img src="{{asset('icons/tiktok.svg')}}" alt="">
-        <img src="{{asset('icons/tumblr.svg')}}" alt="">
-        <img src="{{asset('icons/snapchat.svg')}}" alt="">
-        <img src="{{asset('icons/youtube.svg')}}" alt="">
-        <img src="{{asset('icons/vimeo.svg')}}" alt="">
-      </div>
+  </div>
+  <div class="sub-wrap">
+    <div>
+      <h2 class="subscription">Subscribe to our emails</h2>
+      <label>
+        <input type="text" placeholder="Email">
+      </label>
     </div>
-    <hr>
-    <div class="footer-container">
-      <div class="footer-wrap">
-        <div class="payment">
-          <p>Country/region</p>
-          <select name="currency" id="">
-            <option>Euro (EUR) </option>
-            <option>U.S. Dollar (USD) </option>
-            <option>Swiss Franc (CHF) </option>
-          </select>
-        </div>
-        <div class="payment">
-          <p>Language</p>
-          <select name="language" id="">
-            <option>English</option>
-            <option>Spanish</option>
-            <option>Latvian</option>
-          </select>
-        </div>
+    <div class="icons">
+      <img src="{{asset('icons/twit.svg')}}" alt="">
+      <img src="{{asset('icons/facebook.svg')}}" alt="">
+      <img src="{{asset('icons/pinterest.svg')}}" alt="">
+      <img src="{{asset('icons/instagram.svg')}}" alt="">
+      <img src="{{asset('icons/tiktok.svg')}}" alt="">
+      <img src="{{asset('icons/tumblr.svg')}}" alt="">
+      <img src="{{asset('icons/snapchat.svg')}}" alt="">
+      <img src="{{asset('icons/youtube.svg')}}" alt="">
+      <img src="{{asset('icons/vimeo.svg')}}" alt="">
+    </div>
+  </div>
+  <hr>
+  <div class="footer-container">
+    <div class="footer-wrap">
+      <div class="payment">
+        <p>Country/region</p>
+        <select name="currency" id="">
+          <option>Euro (EUR) </option>
+          <option>U.S. Dollar (USD) </option>
+          <option>Swiss Franc (CHF) </option>
+        </select>
       </div>
-      <div>
-        <div class="payment-icons">
-          <img src="{{asset('icons/shoppay.svg')}}" alt="">
-          <img src="{{asset('icons/visa.svg')}}" alt="">
-          <img src="{{asset('icons/mastercard.svg')}}" alt="">
-          <img src="{{asset('icons/applepay.svg')}}" alt="">
-          <img src="{{asset('icons/googlepay.svg')}}" alt="">
-          <img src="{{asset('icons/amex.svg')}}" alt="">
-        </div>
+      <div class="payment">
+        <p>Language</p>
+        <select name="language" id="">
+          <option>English</option>
+          <option>Spanish</option>
+          <option>Latvian</option>
+        </select>
       </div>
     </div>
+    <div>
+      <div class="payment-icons">
+        <img src="{{asset('icons/shoppay.svg')}}" alt="">
+        <img src="{{asset('icons/visa.svg')}}" alt="">
+        <img src="{{asset('icons/mastercard.svg')}}" alt="">
+        <img src="{{asset('icons/applepay.svg')}}" alt="">
+        <img src="{{asset('icons/googlepay.svg')}}" alt="">
+        <img src="{{asset('icons/amex.svg')}}" alt="">
+      </div>
+    </div>
+  </div>
   </div>
 
 </body>
