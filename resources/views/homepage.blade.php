@@ -14,15 +14,15 @@
         <x-navigation></x-navigation>
         <div class="intro">
             <div class="intro__content">
-                <h1>Industrial design meets fashion</h1>
-                <p>Atypical leather goods</p>
+                <h1>You can't buy happiness <br> but you can buy a board game.</h1>
+                <p> And that's pretty close</p>
                 <a href="/catalogue">Go to catalogue</a>
             </div>
         </div>
         <div class="content wrapper">
             <div class="about">
                 <h2>Obsessive Attention. Intelligent Effort.</h2>
-                <p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.</p>
+                <p>Functional board games made of luxurious and honest materials to improve people's lives in small but mighty ways.</p>
             </div>
             <div class="catalog">
                 @foreach($products as $product)

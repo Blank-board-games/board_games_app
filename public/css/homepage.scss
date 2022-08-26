@@ -1,5 +1,5 @@
 .intro{ 
-    min-height: 400px;
+    min-height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -98,7 +98,7 @@
 @media screen and (min-width: 600px) {
     .intro{ 
         &__content{ 
-            max-width: 460px;
+            max-width: 500px;
             padding: 40px;
             background: rgba(0, 0, 0, 0.6);
         }
